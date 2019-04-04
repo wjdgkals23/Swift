@@ -57,7 +57,8 @@ let setB: Set<Int> = [3, 4, 5, 6, 7]
 let union: Set<Int> = setA.union(setB)
 type(of: union)
 print(union)
-
+let arr4 = Array(union)
+print(arr4)
 let sortedUnion: [Int] = union.sorted()
 
 
@@ -117,19 +118,18 @@ switch optionalValue {
 case .none:
     print("None")
 case .some(let value):
-    print(value)
+    print(value+1)
 default:
     print("DEFAULT")
 }
 
 //? 추출을 어떻게 할까?
-var optionalValue2: Int? = nil
-
+var optionalValue2: Int? = 3
 switch optionalValue2 {
 case .none:
     print("nil")
 case .some(let value):
-    print(value)
+    print(value+2)
 default:
     print("DEFAULT")
 }
