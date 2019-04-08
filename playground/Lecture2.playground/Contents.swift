@@ -49,7 +49,11 @@ print(calculate(4, 5, function: { (a:Int, b:Int) -> Int in
 //반환타입 생략 : 컴파일러가 클로저의 타입을 유추할 수 있는 경우 매개변수, 반환 타입을 생략할 수 있습니다.
 //단축 인자 이름 : 전달인자의 이름이 굳이 필요없고, 컴파일러가 타입을 유추할 수 있는 경우 축약된 전달인자 이름($0, $1, $2...)을 사용 할 수 있습니다.
 //암시적 반환 표현 : 반환 값이 있는 경우, 암시적으로 클로저의 맨 마지막 줄은 return 키워드를 생략하더라도 반환 값으로 취급합니다.
-
+calculate(3,4) { (left: Int, right: Int) -> Int in
+    var temp: String = "string"
+    
+    return left + right
+}
 calculate(4,5) {
     $0 + $1
 }
@@ -125,7 +129,7 @@ class Person{
     }
     
     static func typeMethod(){
-        print("type method - static")
+        print("type method - static")ß
     }
     
     class func classMethod(){
