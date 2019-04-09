@@ -8,8 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface ViewController : UIViewController<UIPickerViewDataSource,UIPickerViewDelegate> {
+    NSArray *companyName;
+    NSArray *tesla;
+    NSArray *teslaImg;
+    NSArray *lamborghini;
+    NSArray *lamborghiniImg;
+    NSArray *porsche;
+    NSArray *porscheImg;
+    NSArray *nameSet;
+    NSArray *imgSet;
+}
+@property (strong, nonatomic) IBOutlet UIImageView *imgView;
 
 @end
 
