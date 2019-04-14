@@ -24,6 +24,15 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="puA-jK-oKr">
                                 <rect key="frame" x="19" y="273" width="337.5" height="333.5"/>
                             </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vmv-Sq-xBi">
+                                <rect key="frame" x="137.5" y="637" width="100" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="qWR-19-wkS"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -31,14 +40,17 @@
                             <constraint firstItem="puA-jK-oKr" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.5" id="YLh-qH-9Og"/>
                             <constraint firstItem="53q-bv-ujd" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" multiplier="2" id="cW2-dM-vcc"/>
                             <constraint firstItem="puA-jK-oKr" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="fzD-xA-lb9"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="vmv-Sq-xBi" secondAttribute="bottom" id="gIm-bC-Dxt"/>
                             <constraint firstItem="puA-jK-oKr" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.9" id="igV-JH-eDk"/>
                             <constraint firstItem="53q-bv-ujd" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="jSg-8D-P0z"/>
+                            <constraint firstItem="vmv-Sq-xBi" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="vaS-9E-iEG"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="imageView" destination="puA-jK-oKr" id="La3-Cc-o24"/>
                         <outlet property="pickerView" destination="53q-bv-ujd" id="PGe-Ju-8k6"/>
+                        <outlet property="tempField" destination="vmv-Sq-xBi" id="18h-HO-f43"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

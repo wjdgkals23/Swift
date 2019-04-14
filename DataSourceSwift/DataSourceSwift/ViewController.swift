@@ -8,10 +8,11 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
+class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate {
     
     @IBOutlet weak var pickerView: UIPickerView!
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var tempField: UITextField!
     
     let companyData: [String] = ["Tesla","Lambo"]
     var imageData: [String] = [String]()
@@ -33,6 +34,7 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         imageData = imageTesla
         nameData = nameTesla
         self.imageView.image = UIImage.init(named: imageData[0])
+        tempField.delegate = self
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -71,6 +73,23 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
             imageView.image = UIImage.init(named: imageData[row])
         }
     }
-
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        print("editing")
+    }
+    
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        print("editing")
+        return true
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        print("return")
+        return true
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
 }
 

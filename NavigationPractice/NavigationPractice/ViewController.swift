@@ -9,7 +9,10 @@
 import UIKit
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate,  UINavigationControllerDelegate {
-
+    @IBOutlet var nameField: UITextField!
+    @IBOutlet var ageField: UITextField!
+    @IBOutlet var saveShared: UIButton!
+    
 //    let photo = PHPhotoLibrary.authorizationStatus()
     let image = UIImagePickerController()
     override func viewDidLoad() {
@@ -32,6 +35,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,  UINavi
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         print("end picker")
         picker.dismiss(animated: true, completion: nil)
+    }
+    @IBAction func saveUserInfo(_ sender: Any) {
+        UserInfo.shared.name = nameField.text
+        UserInfo.shared.age = ageField.text
     }
 }
 

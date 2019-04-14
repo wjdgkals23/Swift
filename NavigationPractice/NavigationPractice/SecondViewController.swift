@@ -10,12 +10,16 @@ import UIKit
 
 class SecondViewController: UIViewController {
 
+    @IBOutlet var nameLabel: UILabel!
+    @IBOutlet var ageLabel: UILabel!
     @IBOutlet var popButton: UIButton!
     @IBOutlet var presentationButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        nameLabel.text = UserInfo.shared.name
+        ageLabel.text = UserInfo.shared.age
     }
     
     @IBAction func popToView() {
