@@ -13,6 +13,7 @@
 		F47ABBC5225ED8780004D742 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F47ABBC4225ED8780004D742 /* Assets.xcassets */; };
 		F47ABBC8225ED8780004D742 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F47ABBC6225ED8780004D742 /* LaunchScreen.storyboard */; };
 		F47ABBCB225ED8780004D742 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F47ABBCA225ED8780004D742 /* main.m */; };
+		F47ABC09226028AA0004D742 /* NaviControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F47ABC08226028AA0004D742 /* NaviControllerViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,8 @@
 		F47ABBC7225ED8780004D742 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F47ABBC9225ED8780004D742 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F47ABBCA225ED8780004D742 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		F47ABC07226028AA0004D742 /* NaviControllerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NaviControllerViewController.h; sourceTree = "<group>"; };
+		F47ABC08226028AA0004D742 /* NaviControllerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NaviControllerViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +70,8 @@
 				F47ABBC6225ED8780004D742 /* LaunchScreen.storyboard */,
 				F47ABBC9225ED8780004D742 /* Info.plist */,
 				F47ABBCA225ED8780004D742 /* main.m */,
+				F47ABC07226028AA0004D742 /* NaviControllerViewController.h */,
+				F47ABC08226028AA0004D742 /* NaviControllerViewController.m */,
 			);
 			path = PracticeUIAlert;
 			sourceTree = "<group>";
@@ -143,6 +148,7 @@
 			files = (
 				F47ABBC0225ED8780004D742 /* ViewController.m in Sources */,
 				F47ABBCB225ED8780004D742 /* main.m in Sources */,
+				F47ABC09226028AA0004D742 /* NaviControllerViewController.m in Sources */,
 				F47ABBBD225ED8780004D742 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

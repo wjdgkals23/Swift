@@ -1,3 +1,5 @@
+*.ttf
+*.pdf
 # Build generated
 build/
 DerivedData

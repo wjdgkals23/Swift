@@ -1,5 +1,5 @@
 //
-//  SecondViewController.swift
+//  SecondSecondViewController.swift
 //  NavigationPractice
 //
 //  Created by 정하민 on 11/04/2019.
@@ -18,8 +18,12 @@ class SecondViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+<<<<<<< Updated upstream
         nameLabel.text = UserInfo.shared.name
         ageLabel.text = UserInfo.shared.age
+=======
+        print("SecondViewController Did Load")
+>>>>>>> Stashed changes
     }
     
     @IBAction func popToView() {
@@ -30,7 +34,36 @@ class SecondViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
-
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        print("SecondViewController Will Appear")
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        print("SecondViewController Will Disappear")
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        print("SecondViewController Did Appear")
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        print("SecondViewController Did Disappear")
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        print("SecondViewController Subview Did Appear")
+    }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        print("SecondViewController Subview Will Appear")
+    }
+    
     /*
     // MARK: - Navigation
 

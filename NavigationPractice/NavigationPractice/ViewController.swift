@@ -19,6 +19,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,  UINavi
         super.viewDidLoad()
         // Do any additional setup after loading the view
         image.delegate = self
+        print("ViewController Did Load")
     }
 
     @IBAction func galleryOpen(_ sender: UIButton) {
@@ -36,9 +37,43 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,  UINavi
         print("end picker")
         picker.dismiss(animated: true, completion: nil)
     }
+<<<<<<< Updated upstream
     @IBAction func saveUserInfo(_ sender: Any) {
         UserInfo.shared.name = nameField.text
         UserInfo.shared.age = ageField.text
     }
+=======
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        print("ViewController Will Appear")
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        print("ViewController Will Disappear")
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        print("ViewController Did Appear")
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        print("ViewController Did Disappear")
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        print("ViewController Subview Did Appear")
+    }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        print("ViewController Subview Will Appear")
+    }
+
+>>>>>>> Stashed changes
 }
 
