@@ -37,12 +37,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,  UINavi
         print("end picker")
         picker.dismiss(animated: true, completion: nil)
     }
-<<<<<<< Updated upstream
     @IBAction func saveUserInfo(_ sender: Any) {
         UserInfo.shared.name = nameField.text
         UserInfo.shared.age = ageField.text
     }
-=======
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -74,6 +72,5 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,  UINavi
         print("ViewController Subview Will Appear")
     }
 
->>>>>>> Stashed changes
 }
 

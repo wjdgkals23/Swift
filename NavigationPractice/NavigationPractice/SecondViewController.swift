@@ -18,12 +18,9 @@ class SecondViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-<<<<<<< Updated upstream
         nameLabel.text = UserInfo.shared.name
         ageLabel.text = UserInfo.shared.age
-=======
         print("SecondViewController Did Load")
->>>>>>> Stashed changes
     }
     
     @IBAction func popToView() {
