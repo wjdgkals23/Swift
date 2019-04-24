@@ -10,10 +10,26 @@ import UIKit
 
 class TableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    let food: [String] = ["김치", "미역국", "된장"]
+    let food: [String] = ["김치", "미역국", "된장", "김치", "미역국", "된장", "김치", "미역국", "된장", "김치", "미역국", "된장", "김치", "미역국", "된장", "김치", "미역국", "된장"]
+    let music: [String] = ["가을안부", "소주한잔", "가을안부", "소주한잔", "가을안부", "소주한잔", "가을안부", "소주한잔", "가을안부", "소주한잔"]
+    var date: [Date] = []
     
-    let music: [String] = ["가을안부", "소주한잔"]
+    var dateFormatter: DateFormatter = {
+        var temp = DateFormatter()
+        temp.dateStyle = .medium
 
+        return temp
+    }()
+    
+    var timeFormatter: DateFormatter = {
+        var temp = DateFormatter()
+        temp.timeStyle = .short
+        
+        return temp
+    }()
+
+    @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -22,7 +38,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return 3
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -35,6 +51,8 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
             return food.count
         case 1:
             return music.count
+        case 2:
+            return date.count
         default:
             return 0
         }
@@ -42,18 +60,35 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        
-        cell.textLabel?.text = indexPath.section == 0 ? food[indexPath.row] : music[indexPath.row]
-
-        return cell
+        if indexPath.section > 1 {
+            let cell: CutomTableViewCell = tableView.dequeueReusableCell(withIdentifier: "customcell", for: indexPath) as! CutomTableViewCell
+            cell.rightLabel.text = timeFormatter.string(from: date[indexPath.row])
+            cell.leftLabel.text = dateFormatter.string(from: date[indexPath.row])
+            return cell
+        } else {
+            let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+            cell.textLabel?.text = indexPath.section == 0 ? food[indexPath.row] : music[indexPath.row]
+            if(indexPath.row == 2) {
+                cell.backgroundColor = UIColor.red
+            } else {
+                cell.backgroundColor = UIColor.white
+            }
+            return cell
+        }
     }
     
-    func tableView(_ tableView: UITableView, titleForHeaderInSsection section: Int) -> String? {
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if section == 2 {
+            return nil
+        }
         return section == 0 ? "음식" : "노래"
     }
     
-
+    @IBAction func addDateData(_ sender: Any) {
+        date.append(Date())
+        
+        self.tableView.reloadData()
+    }
     /*
     // MARK: - Navigation
 
@@ -63,5 +98,22 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         // Pass the selected object to the new view controller.
     }
     */
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let selectedCellView = segue.destination as? SelectedCellViewController else {
+            return
+        }
+        
+        guard let senderCell = sender as? UITableViewCell else {
+            return
+        }
+        
+        if let tempString: String = senderCell.textLabel?.text {
+            selectedCellView.setText = tempString
+        } else {
+            selectedCellView.setText = "실패"
+        }
+        
+    }
 
 }

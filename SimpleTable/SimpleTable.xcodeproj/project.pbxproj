@@ -14,6 +14,8 @@
 		908D8D05226B6A4A00087C7F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 908D8D03226B6A4A00087C7F /* LaunchScreen.storyboard */; };
 		908D8D0D226B6AC400087C7F /* MainNaviViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908D8D0C226B6AC400087C7F /* MainNaviViewController.swift */; };
 		908D8D0F226B6B1000087C7F /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908D8D0E226B6B1000087C7F /* TableViewController.swift */; };
+		F4D4D49C226D89540057CA67 /* CutomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D4D49B226D89540057CA67 /* CutomTableViewCell.swift */; };
+		F4D4D4A2227023410057CA67 /* SelectedCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D4D4A1227023410057CA67 /* SelectedCellViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		908D8D06226B6A4A00087C7F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		908D8D0C226B6AC400087C7F /* MainNaviViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNaviViewController.swift; sourceTree = "<group>"; };
 		908D8D0E226B6B1000087C7F /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		F4D4D49B226D89540057CA67 /* CutomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CutomTableViewCell.swift; sourceTree = "<group>"; };
+		F4D4D4A1227023410057CA67 /* SelectedCellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedCellViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +70,8 @@
 				908D8D06226B6A4A00087C7F /* Info.plist */,
 				908D8D0C226B6AC400087C7F /* MainNaviViewController.swift */,
 				908D8D0E226B6B1000087C7F /* TableViewController.swift */,
+				F4D4D49B226D89540057CA67 /* CutomTableViewCell.swift */,
+				F4D4D4A1227023410057CA67 /* SelectedCellViewController.swift */,
 			);
 			path = SimpleTable;
 			sourceTree = "<group>";
@@ -142,8 +148,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				908D8CFD226B6A4A00087C7F /* ViewController.swift in Sources */,
+				F4D4D49C226D89540057CA67 /* CutomTableViewCell.swift in Sources */,
 				908D8CFB226B6A4A00087C7F /* AppDelegate.swift in Sources */,
 				908D8D0D226B6AC400087C7F /* MainNaviViewController.swift in Sources */,
+				F4D4D4A2227023410057CA67 /* SelectedCellViewController.swift in Sources */,
 				908D8D0F226B6B1000087C7F /* TableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
