@@ -1,34 +1,21 @@
-*.ttf
-*.pdf
-# Build generated
-build/
-DerivedData
-build.xcarchive
+### Xcode ###
+# Xcode
+#
+# gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore
+
+## Build generated
 
 ## Various settings
-*.pbxuser
-!default.pbxuser
-*.mode1v3
-!default.mode1v3
-*.mode2v3
-!default.mode2v3
-*.perspectivev3
-!default.perspectivev3
-**/xcuserdata
 
 ## Other
-*.xccheckout
-*.moved-aside
-*.xcuserstate
-*.xcscmblueprint
 
-## Obj-C/Swift specific
-*.hmap
-*.ipa
+### Xcode Patch ###
+*.xcodeproj/*
+!*.xcodeproj/project.pbxproj
+!*.xcodeproj/xcshareddata/
+!*.xcworkspace/contents.xcworkspacedata
+/*.gcno
 
-# CocoaPods
-**/Pods/
-
-# Carthage
-**/Carthage/Checkouts
-**/Carthage/Build
+# General
+.DS_Store
+*/.DS_Store
