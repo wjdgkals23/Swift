@@ -43,22 +43,34 @@ class NationWeatherViewController: UIViewController, UITableViewDelegate, UITabl
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: WeatherTableViewCell = tableView.dequeueReusableCell(withIdentifier: "weathercell") as! WeatherTableViewCell
+        for item in cell.uiView.subviews {
+            item.removeFromSuperview()
+        }
         cell.cityName.text = weatherJson[indexPath.row].city_name
         cell.rainProb.text = String(weatherJson[indexPath.row].rainfall_probability)
         cell.cityTemper.text = String(weatherJson[indexPath.row].celsius)
         
+        var image: UIImage? = nil
+        
         switch weatherJson[indexPath.row].state {
         case 10:
-            cell.imageView?.image = UIImage(named: "sunny")
+            image = UIImage(named: "sunny")
         case 11:
-            cell.imageView?.image = UIImage(named: "cloudy")
+            image = UIImage(named: "cloudy")
         case 12:
-            cell.imageView?.image = UIImage(named: "rainy")
+            image = UIImage(named: "rainy")
         case 13:
-            cell.imageView?.image = UIImage(named: "snowy")
+            image = UIImage(named: "snowy")
         default:
             print("not provide type")
         }
+        
+//        print(cell.uiView)
+        let tempRect: CGRect = CGRect(x: 75 - (image?.size.width)!/2, y: cell.uiView.frame.size.height/2 - (image?.size.height)!/2, width: (image?.size.width)!, height: (image?.size.height)!)
+        let uiImageView: UIImageView = UIImageView(frame: tempRect)
+        uiImageView.image = image
+        cell.uiView.addSubview(uiImageView)
+        
         
         return cell
     }
