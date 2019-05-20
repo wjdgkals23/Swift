@@ -114,6 +114,26 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     }
     
+    // MARK: - Segue Prepare
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let imageZoomViewController: ImageZoomViewController = segue.destination as? ImageZoomViewController else {
+            return
+        }
+        
+        guard let cell: UITableViewCell = sender as? UITableViewCell else {
+            return
+        }
+        
+        guard let indexPath: IndexPath = self.tableView.indexPath(for: cell) else {
+            return
+        }
+        
+        imageZoomViewController.imageData = self.fetchResult[indexPath.row] // 이미지 넘기는 방식
+        
+    }
+
+    
 }
 
 

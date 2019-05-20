@@ -32,11 +32,21 @@
                                     <action selector="loadAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hnt-iP-dSD"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Zyu-bY-iSO">
+                                <rect key="frame" x="0.0" y="633" width="414" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="Zyu-bY-iSO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="363-Bn-PkN"/>
+                            <constraint firstItem="Zyu-bY-iSO" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="200" id="Bsw-3e-Pm2"/>
                             <constraint firstItem="uob-SD-3uQ" firstAttribute="top" secondItem="JI4-E6-dV7" secondAttribute="bottom" constant="52" id="DTq-9w-Hgc"/>
+                            <constraint firstItem="Zyu-bY-iSO" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="FPx-Jc-c6K"/>
                             <constraint firstItem="JI4-E6-dV7" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="100" id="Zpr-ah-hCP"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Zyu-bY-iSO" secondAttribute="trailing" id="fXj-Ek-UuW"/>
                             <constraint firstItem="uob-SD-3uQ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="pSP-Mh-Aw0"/>
                             <constraint firstItem="JI4-E6-dV7" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="shE-Ed-evP"/>
                         </constraints>
@@ -49,6 +59,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="137.94642857142856"/>
         </scene>
     </scenes>
 </document>

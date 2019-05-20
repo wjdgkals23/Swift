@@ -21,8 +21,9 @@ class ViewController: UIViewController {
     @IBAction func loadAction(_ sender: Any) {
         let urlSetter = UrlSetter(urlString: "https://upload.wikimedia.org/wikipedia/commons/3/3d/LARGE_elevation.jpg")
         OperationQueue().addOperation {
+            let imageData: Data = urlSetter.getImageData()
             OperationQueue.main.addOperation {
-                self.ImageView.image = UIImage(data: urlSetter.getImageData())
+                self.ImageView.image = UIImage(data: imageData)
             }
         }
     }
