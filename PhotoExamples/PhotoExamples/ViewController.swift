@@ -9,26 +9,25 @@
 import UIKit
 import Photos
 
+// Photos 프레임워크 : icloud 의
+
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, PHPhotoLibraryChangeObserver {
     
     @IBOutlet weak var tableView: UITableView!
-    var fetchResult: PHFetchResult<PHAsset>! // 결과배열
-    let imageManager: PHCachingImageManager = PHCachingImageManager() // 가져온 핸드폰 앨범의 사진데이터를 셀 이미지에 대입하는 요소
+    var fetchResult: PHFetchResult<PHAsset>! // 결과배열 사진 단위인 PHAsset을 배열로 받을것임
+    let imageManager: PHCachingImageManager = PHCachingImageManager() // Asset 데이터를 미리 로딩하는 객체
     let cellIdentifier: String = "cell"
     
     func requestCollection() {
-        let cameraRoll: PHFetchResult<PHAssetCollection> = PHAssetCollection.fetchAssetCollections(with: .smartAlbum, subtype: .smartAlbumUserLibrary, options: nil) // 회원 앨범에 접근하여 컬렉션 별로 읽어오기
+        let cameraRoll: PHFetchResult<PHAssetCollection> = PHAssetCollection.fetchAssetCollections(with: .smartAlbum, subtype: .smartAlbumUserLibrary, options: nil) // 앨범에서 컬렉션 단위로 결과를 읽어오는 변수
         
         guard let cameraRollCollection:PHAssetCollection = cameraRoll.firstObject else {
             return
         } // 읽어온 컬렉션 묶음들 중 첫 요소 읽기
         
-//        print(cameraRoll.count)
-        
-        let fetchOptions = PHFetchOptions() // 읽어온 컬렉션 정렬 옵션 생성
-        fetchOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)] // 생성날짜로 정렬
-        self.fetchResult = PHAsset.fetchAssets(in: cameraRollCollection, options: fetchOptions)
-        // 콜렉션을 PHAsset.fetchAssets 를 이용하여 PHAsset이 원소인 배열로 변경
+        let fetchOptions = PHFetchOptions() // 읽어온 컬렉션 데이터를 뽑아낼 옵션 설정
+        fetchOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)] // 옵션을 생성날짜로 내림차순으로 정렬
+        self.fetchResult = PHAsset.fetchAssets(in: cameraRollCollection, options: fetchOptions) // 데이터 뽑아내기
         
         PHPhotoLibrary.shared().register(self)
         // 변화에 대한 감지를 해당 부분에 놓아야하는 이유는 최초 접근시 데이터에 대한 변화가 차후에 일어날 수 있다.
@@ -96,8 +95,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         if editingStyle == .delete {
             let asset: PHAsset = self.fetchResult[indexPath.row]
             
-            PHPhotoLibrary.shared().performChanges({
-                PHAssetChangeRequest.deleteAssets([asset] as NSArray)
+            PHPhotoLibrary.shared().performChanges({ // Photo 요소 변경 관리 라이브러리를 통한 변화 접근 함수 호출
+                PHAssetChangeRequest.deleteAssets([asset] as NSArray) // 변화[삭제] 요청 리퀘스트
             }, completionHandler: nil) // 취소 리퀘스트
         }
     }
@@ -129,7 +128,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             return
         }
         
-        imageZoomViewController.imageData = self.fetchResult[indexPath.row] // 이미지 넘기는 방식
+        imageZoomViewController.imageData = self.fetchResult[indexPath.row]
         
     }
 
