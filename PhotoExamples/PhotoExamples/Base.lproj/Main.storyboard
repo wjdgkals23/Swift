@@ -49,8 +49,15 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="BnN-kH-CeM"/>
+                    <navigationItem key="navigationItem" id="BnN-kH-CeM">
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="uxs-wd-56c">
+                            <connections>
+                                <action selector="reloadAction:" destination="BYZ-38-t0r" id="na3-cW-vyv"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="refreshBtn" destination="uxs-wd-56c" id="3dx-YV-JtQ"/>
                         <outlet property="tableView" destination="cV1-CE-cUu" id="CJZ-R2-pL3"/>
                     </connections>
                 </viewController>

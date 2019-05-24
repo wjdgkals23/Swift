@@ -13,6 +13,7 @@ import Photos
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, PHPhotoLibraryChangeObserver {
     
+    @IBOutlet weak var refreshBtn: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!
     var fetchResult: PHFetchResult<PHAsset>! // 결과배열 사진 단위인 PHAsset을 배열로 받을것임
     let imageManager: PHCachingImageManager = PHCachingImageManager() // Asset 데이터를 미리 로딩하는 객체
@@ -132,6 +133,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
     }
 
+    @IBAction func reloadAction(_ sender: Any) {
+        self.requestCollection()
+        print("refresh")
+        OperationQueue.main.addOperation {
+            self.tableView.reloadData()
+        }
+    }
     
 }
 
