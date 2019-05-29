@@ -23,7 +23,7 @@ class RestManager {
             
             var queryItems = [URLQueryItem]()
             for(key,value) in urlQueryParameters.allValues() {
-                let item = URLQueryItem(name: key, value: value.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)) // URL에 추가될 쿼리 아이템들을 허용되는 문자(빈공백->% 로 대체)로 인코딩하는 과정
+                let item = URLQueryItem(name: key, value: value.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)) // URL에 추가될 쿼리 아이템들을 허용되는 문자(빈공백->%20 로 대체)로 인코딩하는 과정
                 
                 queryItems.append(item)
             }
@@ -45,6 +45,40 @@ class RestManager {
             return bodyString.data(using: .utf8)
         } else {
             return httpBody
+        }
+    }
+    
+    private func prepareRequest(withURL url: URL?, httpBody: Data?, httpMethod: HttpMethod) -> URLRequest? {
+        guard let url = url else { return nil }
+        var request = URLRequest(url: url)
+        request.httpMethod = httpMethod.rawValue
+        for (header, value) in requestHttpHeaders.allValues() {
+            request.setValue(value, forHTTPHeaderField: header)
+        }
+        request.httpBody = httpBody
+        return request
+    }
+    
+    func makeRequest(toURL url: URL,
+                     withHttpMethod httpMethod: HttpMethod,
+                     completion: @escaping (_ result: Results) -> Void) {
+        //@escaping 비동기적으로 또는 함수 밖에서 처리되는 경우 꼭 사용해야함
+        DispatchQueue.global(qos: .userInitiated).async { [weak self] in
+            // weak self는 RestManager 인스턴스가 어떤 이유로든 데이터 접근 및 연산의 크래시를 막기 위해서 사용한다.
+            // weak로 인핸 self에 접근할때는 optional하게 접근해야한다.
+            let targetURL = self?.addURLQueryParameters(toURL: url)
+            let httpBody = self?.getHttpBody()
+            guard let request = self?.prepareRequest(withURL: targetURL, httpBody: httpBody, httpMethod: httpMethod) else
+            {
+                completion(Results(withError: CustomError.failedToCreateRequest))
+                return
+            }
+            let sessionConfiguration = URLSessionConfiguration.default
+            let session = URLSession(configuration: sessionConfiguration)
+            let task = session.dataTask(with: request) { (data, response, error) in
+                completion(Results.init(withData: data, response: RestManager.Response(fromURLResponse: response), error: error))
+            }
+            task.resume()
         }
     }
     
