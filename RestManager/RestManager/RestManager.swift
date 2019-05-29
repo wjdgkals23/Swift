@@ -14,6 +14,40 @@ class RestManager {
     var urlQueryParameters = RestEntity() // Get 방식 쿼리생성
     
     var httpBodyParameters = RestEntity() // 잔여 HTTP 메소드 파라미터 생성
+    
+    var httpBody: Data?
+    
+    private func addURLQueryParameters(toURL url: URL) -> URL {
+        if urlQueryParameters.totalItems() > 0 {
+            guard var urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false) else { return url }
+            
+            var queryItems = [URLQueryItem]()
+            for(key,value) in urlQueryParameters.allValues() {
+                let item = URLQueryItem(name: key, value: value.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)) // URL에 추가될 쿼리 아이템들을 허용되는 문자(빈공백->% 로 대체)로 인코딩하는 과정
+                
+                queryItems.append(item)
+            }
+            urlComponents.queryItems = queryItems
+            
+            guard let updatedURL = urlComponents.url else { return url }
+            return updatedURL
+        }
+        return url
+    }
+    
+    private func getHttpBody() -> Data? {
+        guard let contentType = requestHttpHeaders.value(forKey: "Content-Type") else { return nil }
+        
+        if contentType.contains("application/json") {
+            return try? JSONSerialization.data(withJSONObject: httpBodyParameters.allValues(), options: [.prettyPrinted, .sortedKeys])
+        } else if contentType.contains("application/x-www-form-urlencoded") {
+            let bodyString = httpBodyParameters.allValues().map { "\($0)=\(String(describing: $1.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)))" }.joined(separator: "&")
+            return bodyString.data(using: .utf8)
+        } else {
+            return httpBody
+        }
+    }
+    
 }
 
 extension RestManager {
@@ -25,7 +59,7 @@ extension RestManager {
         case delete
     }
     
-    struct RestEntity {
+    struct RestEntity { // 요청 변수들
         private var values: [String:String] = [:]
         
         mutating func add(value:String, forKey key:String) { // mutating 구조체의 내부속성을 변경하기 위해 필수
@@ -60,6 +94,34 @@ extension RestManager {
                     headers.add(value: "\(value)", forKey: "\(key)")
                 }
             }
+        }
+    }
+    
+    struct Results {
+        var data: Data?
+        var response: Response?
+        var error: Error?
+        
+        init (withData data: Data?, response: Response?, error: Error?) { //정상결과 반영
+            self.data = data
+            self.response = response
+            self.error = error
+        }
+        
+        init (withError error: Error) { // 에러반영
+            self.error = error
+        }
+    }
+    
+    enum CustomError: Error {
+        case failedToCreateRequest
+    }
+}
+
+extension RestManager.CustomError: LocalizedError {
+    public var localizedDescription: String {
+        switch self {
+        case .failedToCreateRequest: return NSLocalizedString("Unable to create the URLRequest object", comment: "")
         }
     }
 }
