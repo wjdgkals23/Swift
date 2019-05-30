@@ -7,16 +7,34 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		90FB48E422A07ED900A5D8DA /* RestManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90FB48E322A07ED900A5D8DA /* RestManagerTests.swift */; };
+		90FB48EF22A0800300A5D8DA /* RestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90FB48EE22A0800300A5D8DA /* RestManager.swift */; };
+		90FB48F222A0802700A5D8DA /* RestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90FB48F122A0802700A5D8DA /* RestManager.swift */; };
+		90FB48F322A0802700A5D8DA /* RestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90FB48F122A0802700A5D8DA /* RestManager.swift */; };
 		C0292E0622645B350077CFA3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0292E0522645B350077CFA3 /* AppDelegate.swift */; };
 		C0292E0822645B350077CFA3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0292E0722645B350077CFA3 /* ViewController.swift */; };
 		C0292E0B22645B350077CFA3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0292E0922645B350077CFA3 /* Main.storyboard */; };
 		C0292E0D22645B380077CFA3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0292E0C22645B380077CFA3 /* Assets.xcassets */; };
 		C0292E1022645B380077CFA3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0292E0E22645B380077CFA3 /* LaunchScreen.storyboard */; };
-		C0292E1822645B590077CFA3 /* RestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0292E1722645B590077CFA3 /* RestManager.swift */; };
 		C0292E1B2264D85F0077CFA3 /* SampleStructures.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0292E1A2264D85F0077CFA3 /* SampleStructures.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		90FB48E622A07ED900A5D8DA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C0292DFA22645B350077CFA3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C0292E0122645B350077CFA3;
+			remoteInfo = RestManager;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		90FB48E122A07ED900A5D8DA /* RestManagerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RestManagerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		90FB48E322A07ED900A5D8DA /* RestManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestManagerTests.swift; sourceTree = "<group>"; };
+		90FB48E522A07ED900A5D8DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		90FB48EE22A0800300A5D8DA /* RestManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestManager.swift; sourceTree = "<group>"; };
+		90FB48F122A0802700A5D8DA /* RestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestManager.swift; sourceTree = "<group>"; };
 		C0292E0222645B350077CFA3 /* RestManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RestManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0292E0522645B350077CFA3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C0292E0722645B350077CFA3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -24,11 +42,17 @@
 		C0292E0C22645B380077CFA3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C0292E0F22645B380077CFA3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C0292E1122645B380077CFA3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C0292E1722645B590077CFA3 /* RestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestManager.swift; sourceTree = "<group>"; };
 		C0292E1A2264D85F0077CFA3 /* SampleStructures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleStructures.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		90FB48DE22A07ED900A5D8DA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C0292DFF22645B350077CFA3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -39,10 +63,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		90FB48E222A07ED900A5D8DA /* RestManagerTests */ = {
+			isa = PBXGroup;
+			children = (
+				90FB48E322A07ED900A5D8DA /* RestManagerTests.swift */,
+				90FB48E522A07ED900A5D8DA /* Info.plist */,
+				90FB48F122A0802700A5D8DA /* RestManager.swift */,
+			);
+			path = RestManagerTests;
+			sourceTree = "<group>";
+		};
 		C0292DF922645B350077CFA3 = {
 			isa = PBXGroup;
 			children = (
 				C0292E0422645B350077CFA3 /* RestManager */,
+				90FB48E222A07ED900A5D8DA /* RestManagerTests */,
 				C0292E0322645B350077CFA3 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -51,6 +86,7 @@
 			isa = PBXGroup;
 			children = (
 				C0292E0222645B350077CFA3 /* RestManager.app */,
+				90FB48E122A07ED900A5D8DA /* RestManagerTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -58,7 +94,7 @@
 		C0292E0422645B350077CFA3 /* RestManager */ = {
 			isa = PBXGroup;
 			children = (
-				C0292E1722645B590077CFA3 /* RestManager.swift */,
+				90FB48EE22A0800300A5D8DA /* RestManager.swift */,
 				C0292E0522645B350077CFA3 /* AppDelegate.swift */,
 				C0292E0722645B350077CFA3 /* ViewController.swift */,
 				C0292E1A2264D85F0077CFA3 /* SampleStructures.swift */,
@@ -73,6 +109,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		90FB48E022A07ED900A5D8DA /* RestManagerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 90FB48EA22A07ED900A5D8DA /* Build configuration list for PBXNativeTarget "RestManagerTests" */;
+			buildPhases = (
+				90FB48DD22A07ED900A5D8DA /* Sources */,
+				90FB48DE22A07ED900A5D8DA /* Frameworks */,
+				90FB48DF22A07ED900A5D8DA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				90FB48E722A07ED900A5D8DA /* PBXTargetDependency */,
+			);
+			name = RestManagerTests;
+			productName = RestManagerTests;
+			productReference = 90FB48E122A07ED900A5D8DA /* RestManagerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		C0292E0122645B350077CFA3 /* RestManager */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C0292E1422645B380077CFA3 /* Build configuration list for PBXNativeTarget "RestManager" */;
@@ -96,10 +150,14 @@
 		C0292DFA22645B350077CFA3 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1010;
+				LastSwiftUpdateCheck = 1020;
 				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = Appcoda;
 				TargetAttributes = {
+					90FB48E022A07ED900A5D8DA = {
+						CreatedOnToolsVersion = 10.2.1;
+						TestTargetID = C0292E0122645B350077CFA3;
+					};
 					C0292E0122645B350077CFA3 = {
 						CreatedOnToolsVersion = 10.1;
 					};
@@ -119,11 +177,19 @@
 			projectRoot = "";
 			targets = (
 				C0292E0122645B350077CFA3 /* RestManager */,
+				90FB48E022A07ED900A5D8DA /* RestManagerTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		90FB48DF22A07ED900A5D8DA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C0292E0022645B350077CFA3 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -137,18 +203,36 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		90FB48DD22A07ED900A5D8DA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				90FB48E422A07ED900A5D8DA /* RestManagerTests.swift in Sources */,
+				90FB48F322A0802700A5D8DA /* RestManager.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C0292DFE22645B350077CFA3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C0292E1822645B590077CFA3 /* RestManager.swift in Sources */,
 				C0292E0822645B350077CFA3 /* ViewController.swift in Sources */,
+				90FB48F222A0802700A5D8DA /* RestManager.swift in Sources */,
+				90FB48EF22A0800300A5D8DA /* RestManager.swift in Sources */,
 				C0292E0622645B350077CFA3 /* AppDelegate.swift in Sources */,
 				C0292E1B2264D85F0077CFA3 /* SampleStructures.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		90FB48E722A07ED900A5D8DA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C0292E0122645B350077CFA3 /* RestManager */;
+			targetProxy = 90FB48E622A07ED900A5D8DA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		C0292E0922645B350077CFA3 /* Main.storyboard */ = {
@@ -170,6 +254,46 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		90FB48E822A07ED900A5D8DA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = RestManagerTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.hm.RestManagerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RestManager.app/RestManager";
+			};
+			name = Debug;
+		};
+		90FB48E922A07ED900A5D8DA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = RestManagerTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.hm.RestManagerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RestManager.app/RestManager";
+			};
+			name = Release;
+		};
 		C0292E1222645B380077CFA3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -325,6 +449,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		90FB48EA22A07ED900A5D8DA /* Build configuration list for PBXNativeTarget "RestManagerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				90FB48E822A07ED900A5D8DA /* Debug */,
+				90FB48E922A07ED900A5D8DA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		C0292DFD22645B350077CFA3 /* Build configuration list for PBXProject "RestManager" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
