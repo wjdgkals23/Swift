@@ -90,7 +90,7 @@ var customersInLine = ["Chris", "Alex", "Ewa", "Barry", "Daniella"]
 print(customersInLine.count)
 // Prints "5"
 
-let customerProvider = { customersInLine.remove(at: 0) }
+let customerProvider: ()->String = { customersInLine.remove(at: 0) }// 자동클로저는 인자 값이 없으며 톡정 표현을 감싸서 다른 함수에 전달 인자로 사용할 수 있는 클로저
 print(customersInLine.count)
 // Prints "5"
 
@@ -99,7 +99,10 @@ print("Now serving \(customerProvider())!")
 print(customersInLine.count)
 // Prints "4"
 
+// autoclosure를 이용하여
+// 함수의 인자 값을 넣을 때 클로저가 아니라 클로저가 반환하는 반환 값과 일치하는 형의 함수를 인자로 넣을 수 있습니다.
 func serve(customer customerProvider: @autoclosure () -> String) {
     print("Now serving \(customerProvider())!")
 }
+
 serve(customer: customersInLine.remove(at: 0) )
