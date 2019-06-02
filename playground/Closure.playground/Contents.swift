@@ -102,4 +102,4 @@ print(customersInLine.count)
 func serve(customer customerProvider: @autoclosure () -> String) {
     print("Now serving \(customerProvider())!")
 }
-serve(customer: { customersInLine.remove(at: 0) } )
+serve(customer: customersInLine.remove(at: 0) )
