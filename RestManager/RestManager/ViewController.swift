@@ -8,52 +8,69 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITableViewDataSource {
+    
     
     lazy var restManager: RestManager = RestManager()
     
+    @IBOutlet weak var tableView: UITableView!
+    var friends: [Friend] = []
+    let cellIdentifier: String = "friendCell"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+//        getUser()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         getUser()
     }
     
     func getUser() {
-        guard let url = URL(string: "https://reqres.in/api/users") else { return }
+        
+        guard let url = URL(string: "https://randomuser.me/api/") else { return }
+        restManager.urlQueryParameters.add(value: "20", forKey: "results")
+        restManager.urlQueryParameters.add(value: "name,email,picture", forKey: "inc")
         
         restManager.makeRequest(toURL: url, withHttpMethod: .get) { (results) in
             if let data = results.data {
                 let decoder = JSONDecoder()
-                decoder.keyDecodingStrategy = .convertFromSnakeCase
-                guard let userData = try? decoder.decode(UserData.self, from: data) else { return }
-                print(userData.description)
-            }
-            
-            print("\n\nResponse HTTP Headers:\n")
-            
-            if let response = results.response {
-                for (key, value) in response.headers.allValues() {
-                    print(key, value)
+                guard let userData = try? decoder.decode(APIResponse.self, from: data) else { return }
+                print(userData.results.count)
+                DispatchQueue.main.async {
+                    self.friends = userData.results
+                    self.tableView.reloadData()
                 }
             }
         }
     }
     
-    func createUser() {
-        guard let url = URL(string: "https://reqres.in/api/users") else { return }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return friends.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
         
-        restManager.requestHttpHeaders.add(value: "application/json", forKey: "Content-Type")
-        restManager.httpBodyParameters.add(value: "John", forKey: "name")
-        restManager.httpBodyParameters.add(value: "Developer", forKey: "job")
+        let friend: Friend = friends[indexPath.row]
         
-        restManager.makeRequest(toURL: url, withHttpMethod: .post) { (results) in
-            guard let response = results.response else { return }
-            if response.httpStatusCode == 201 {
-                guard let data = results.data else { return }
-                let decoder = JSONDecoder()
-                guard let jobUser = try? decoder.decode(JobUser.self, from: data) else { return }
-                print(jobUser.description)
+        cell.textLabel?.text = friend.name.full
+        cell.detailTextLabel?.text = friend.email
+        
+        DispatchQueue.global().async {
+            guard let imageURL: URL = URL(string: friend.picture.thumbnail) else { return }
+            guard let imageData: Data = try? Data(contentsOf: imageURL) else { return }
+
+            DispatchQueue.main.async {
+                if let index: IndexPath = tableView.indexPath(for: cell) {
+                    if index.row == indexPath.row {
+                        cell.imageView?.image = UIImage(data: imageData)
+                    }
+                }
             }
         }
+        
+        return cell
     }
 }
