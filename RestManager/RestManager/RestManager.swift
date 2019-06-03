@@ -8,6 +8,9 @@
 
 import Foundation
 
+let didReceiveData: Notification.Name = Notification.Name.init("didReceiveData")
+let didReceiveFail: Notification.Name = Notification.Name.init("failReceiveData")
+
 class RestManager {
     var requestHttpHeaders = RestEntity() // 요청해더 생성
     
@@ -77,6 +80,30 @@ class RestManager {
             let session = URLSession(configuration: sessionConfiguration)
             let task = session.dataTask(with: request) { (data, response, error) in
                 completion(Results.init(withData: data, response: RestManager.Response(fromURLResponse: response), error: error))
+            }
+            task.resume()
+        }
+    }
+    
+    func sendResponseByNoti(toURL url: URL,
+                     withHttpMethod httpMethod: HttpMethod) {
+        //@escaping 비동기적으로 또는 함수 밖에서 처리되는 경우 꼭 사용해야함
+        DispatchQueue.global(qos: .userInitiated).async { [weak self] in
+            // weak self는 RestManager 인스턴스가 어떤 이유로든 데이터 접근 및 연산의 크래시를 막기 위해서 사용한다.
+            // weak로 인핸 self에 접근할때는 optional하게 접근해야한다.
+            let targetURL = self?.addURLQueryParameters(toURL: url)
+            let httpBody = self?.getHttpBody()
+            guard let request = self?.prepareRequest(withURL: targetURL, httpBody: httpBody, httpMethod: httpMethod) else
+            {
+                NotificationCenter.default.post(name: didReceiveFail, object: nil, userInfo: ["error":RestManager.CustomError.failedToCreateRequest])
+                return
+            }
+            print(request)
+            let sessionConfiguration = URLSessionConfiguration.default
+            let session = URLSession(configuration: sessionConfiguration)
+            let task = session.dataTask(with: request) { (data, response, error) in
+                NotificationCenter.default.post(name: didReceiveData, object: nil, userInfo: ["data": data!])
+                return
             }
             task.resume()
         }

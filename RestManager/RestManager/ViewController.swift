@@ -20,11 +20,44 @@ class ViewController: UIViewController, UITableViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
 //        getUser()
+        NotificationCenter.default.addObserver(self, selector: #selector(self.didReceiveDataFunc(_:)), name: didReceiveData, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.didReceiveFailFunc(_:)), name: didReceiveFail, object: nil)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        getUser()
+//        getUser()
+        getUserByNoti()
+    }
+    
+    @objc func didReceiveDataFunc(_ noti:Notification) {
+        if let data = noti.userInfo {
+            let decoder = JSONDecoder()
+            guard let userData = try? decoder.decode(APIResponse.self, from: data["data"] as! Data) else { return }
+            DispatchQueue.main.async {
+                self.friends = userData.results
+                self.tableView.reloadData()
+            }
+        }
+    }
+    
+    @objc func didReceiveFailFunc(_ noti:Notification) {
+
+        let alertAction: UIAlertController = UIAlertController.init(title: "에러", message: "데이터로드 에러", preferredStyle: UIAlertController.Style.alert)
+        let okAction: UIAlertAction = UIAlertAction.init(title: "확인", style: UIAlertAction.Style.cancel, handler: nil)
+        let redirectAction: UIAlertAction = UIAlertAction.init(title: "재로드", style: UIAlertAction.Style.default) { [unowned self] (action) in
+            self.getUser()
+        }
+        alertAction.addAction(okAction)
+        alertAction.addAction(redirectAction)
+        self.present(alertAction, animated: false, completion: nil)
+    }
+    
+    func getUserByNoti() {
+        guard let url = URL(string: "https://randomuser.me/api/") else { return }
+        restManager.urlQueryParameters.add(value: "20", forKey: "results")
+        restManager.urlQueryParameters.add(value: "name,email,picture", forKey: "inc")
+        restManager.sendResponseByNoti(toURL: url, withHttpMethod: .get)
     }
     
     func getUser() {
