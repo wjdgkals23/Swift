@@ -8,17 +8,18 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDataSource {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     
     lazy var restManager: RestManager = RestManager()
     
     @IBOutlet weak var tableView: UITableView!
     var friends: [Friend] = []
-    let cellIdentifier: String = "friendCell"
+    let cellIdentifier: String = "phonecell"
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableView.isEditing = true
 //        getUser()
         NotificationCenter.default.addObserver(self, selector: #selector(self.didReceiveDataFunc(_:)), name: didReceiveData, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.didReceiveFailFunc(_:)), name: didReceiveFail, object: nil)
@@ -84,12 +85,14 @@ class ViewController: UIViewController, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
-        
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as! PhoneCell
         let friend: Friend = friends[indexPath.row]
-        
-        cell.textLabel?.text = friend.name.full
-        cell.detailTextLabel?.text = friend.email
+        cell.imgView.image = nil
+        cell.infoLabel.text = friend.email
+        cell.nameLabel.text = friend.name.full
+//        cell.textLabel?.text = friend.name.full
+//        cell.detailTextLabel?.text = friend.email
+//        cell.imageView?.image = nil
         
         DispatchQueue.global().async {
             guard let imageURL: URL = URL(string: friend.picture.thumbnail) else { return }
@@ -98,12 +101,38 @@ class ViewController: UIViewController, UITableViewDataSource {
             DispatchQueue.main.async {
                 if let index: IndexPath = tableView.indexPath(for: cell) {
                     if index.row == indexPath.row {
-                        cell.imageView?.image = UIImage(data: imageData)
+                        cell.imgView?.image = UIImage(data: imageData)
                     }
                 }
             }
         }
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        switch editingStyle {
+        case .delete:
+            friends.remove(at: indexPath.row)
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        default:
+            return
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .none
+    }
+    
+    func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
+        return false
+    }
+    
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        let movedObject = self.friends[sourceIndexPath.row]
+        friends.remove(at: sourceIndexPath.row)
+        friends.insert(movedObject, at: destinationIndexPath.row)
     }
 }
