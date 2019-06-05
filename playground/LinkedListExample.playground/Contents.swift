@@ -12,7 +12,6 @@ public class LinkedList<T> {
     public typealias Node = LinkedListNode<T> // 타입이름 선언
     
     private var head: Node?
-    private var tail: Node?
     
     public var isEmpty: Bool {
         return head == nil
@@ -31,11 +30,6 @@ public class LinkedList<T> {
             node = next
         }
         return node
-        
-//        var node: Node? = head
-//        while node != nil && node!.next != nil {
-//            node = node!.next
-//        }
     }
     
     public func append(_ value: T) {
@@ -122,3 +116,4 @@ list.append("Hello")
 list.isEmpty         // false
 list.first!.value    // "Hello"
 list.last!.value     // "Hello"
+
