@@ -10,36 +10,20 @@ import UIKit
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    
+    var friendListViewModel = FriendListViewModel()
     lazy var restManager: RestManager = RestManager()
     
     @IBOutlet weak var tableView: UITableView!
-    var friends: [Friend] = []
     let cellIdentifier: String = "phonecell"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.isEditing = true
-//        getUser()
-        NotificationCenter.default.addObserver(self, selector: #selector(self.didReceiveDataFunc(_:)), name: didReceiveData, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.didReceiveFailFunc(_:)), name: didReceiveFail, object: nil)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-//        getUser()
-        getUserByNoti()
-    }
-    
-    @objc func didReceiveDataFunc(_ noti:Notification) {
-        if let data = noti.userInfo {
-            let decoder = JSONDecoder()
-            guard let userData = try? decoder.decode(APIResponse.self, from: data["data"] as! Data) else { return }
-            DispatchQueue.main.async {
-                self.friends = userData.results
-                self.tableView.reloadData()
-            }
-        }
+        getUser()
     }
     
     @objc func didReceiveFailFunc(_ noti:Notification) {
@@ -53,16 +37,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         alertAction.addAction(redirectAction)
         self.present(alertAction, animated: false, completion: nil)
     }
-    
-    func getUserByNoti() {
-        guard let url = URL(string: "https://randomuser.me/api/") else { return }
-        restManager.urlQueryParameters.add(value: "20", forKey: "results")
-        restManager.urlQueryParameters.add(value: "name,email,picture", forKey: "inc")
-        restManager.sendResponseByNoti(toURL: url, withHttpMethod: .get)
-    }
-    
+
     func getUser() {
-        
         guard let url = URL(string: "https://randomuser.me/api/") else { return }
         restManager.urlQueryParameters.add(value: "20", forKey: "results")
         restManager.urlQueryParameters.add(value: "name,email,picture", forKey: "inc")
@@ -70,10 +46,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         restManager.makeRequest(toURL: url, withHttpMethod: .get) { (results) in
             if let data = results.data {
                 let decoder = JSONDecoder()
-                guard let userData = try? decoder.decode(APIResponse.self, from: data) else { return }
-                print(userData.results.count)
+                guard let userData = try? decoder.decode(FriendAPIResponse.self, from: data) else {
+                    print("Fail")
+                    return
+                }
+                print(userData.results)
                 DispatchQueue.main.async {
-                    self.friends = userData.results
+                    self.friendListViewModel.friendsViewModel = userData.results.map(FriendViewModel.init)
                     self.tableView.reloadData()
                 }
             }
@@ -81,21 +60,18 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return friends.count
+        return self.friendListViewModel.friendsViewModel.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as! PhoneCell
-        let friend: Friend = friends[indexPath.row]
+        let friend: FriendViewModel = self.friendListViewModel.friendViewModel(at: indexPath.row)
         cell.imgView.image = nil
         cell.infoLabel.text = friend.email
-        cell.nameLabel.text = friend.name.full
-//        cell.textLabel?.text = friend.name.full
-//        cell.detailTextLabel?.text = friend.email
-//        cell.imageView?.image = nil
+        cell.nameLabel.text = friend.name
         
         DispatchQueue.global().async {
-            guard let imageURL: URL = URL(string: friend.picture.thumbnail) else { return }
+            guard let imageURL: URL = URL(string: friend.pic) else { return }
             guard let imageData: Data = try? Data(contentsOf: imageURL) else { return }
 
             DispatchQueue.main.async {
@@ -113,7 +89,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         switch editingStyle {
         case .delete:
-            friends.remove(at: indexPath.row)
+            self.friendListViewModel.friendsViewModel.remove(at: indexPath.row)
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
@@ -122,17 +98,17 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
     }
     
-    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
-        return .none
-    }
-    
+//    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+//        return .none
+//    }
+//
     func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
         return false
     }
-    
-    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        let movedObject = self.friends[sourceIndexPath.row]
-        friends.remove(at: sourceIndexPath.row)
-        friends.insert(movedObject, at: destinationIndexPath.row)
-    }
+
+//    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+//        let movedObject = self.friends[sourceIndexPath.row]
+//        friends.remove(at: sourceIndexPath.row)
+//        friends.insert(movedObject, at: destinationIndexPath.row)
+//    }
 }
