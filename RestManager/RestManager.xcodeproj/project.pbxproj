@@ -13,8 +13,10 @@
 		C0292E0B22645B350077CFA3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0292E0922645B350077CFA3 /* Main.storyboard */; };
 		C0292E0D22645B380077CFA3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0292E0C22645B380077CFA3 /* Assets.xcassets */; };
 		C0292E1022645B380077CFA3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0292E0E22645B380077CFA3 /* LaunchScreen.storyboard */; };
-		C0292E1B2264D85F0077CFA3 /* SampleStructures.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0292E1A2264D85F0077CFA3 /* SampleStructures.swift */; };
 		F40E885422A65E71005A9478 /* PhoneCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40E885322A65E71005A9478 /* PhoneCell.swift */; };
+		F40E885C22A75F5E005A9478 /* FriendViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40E885B22A75F5E005A9478 /* FriendViewModel.swift */; };
+		F40E885E22A75FC1005A9478 /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40E885D22A75FC1005A9478 /* Friend.swift */; };
+		F40E886022A76018005A9478 /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40E885F22A76018005A9478 /* URL.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,8 +28,10 @@
 		C0292E0C22645B380077CFA3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C0292E0F22645B380077CFA3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C0292E1122645B380077CFA3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C0292E1A2264D85F0077CFA3 /* SampleStructures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleStructures.swift; sourceTree = "<group>"; };
 		F40E885322A65E71005A9478 /* PhoneCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneCell.swift; sourceTree = "<group>"; };
+		F40E885B22A75F5E005A9478 /* FriendViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendViewModel.swift; sourceTree = "<group>"; };
+		F40E885D22A75FC1005A9478 /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
+		F40E885F22A76018005A9478 /* URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,17 +64,67 @@
 		C0292E0422645B350077CFA3 /* RestManager */ = {
 			isa = PBXGroup;
 			children = (
-				90FB48EE22A0800300A5D8DA /* RestManager.swift */,
+				F40E885A22A75DDE005A9478 /* Cell */,
+				F40E885922A75DB5005A9478 /* Controller */,
+				F40E885822A75DA8005A9478 /* WebService */,
+				F40E885722A75D93005A9478 /* Extension */,
+				F40E885622A75D78005A9478 /* Model */,
+				F40E885522A75D6D005A9478 /* ViewModel */,
 				C0292E0522645B350077CFA3 /* AppDelegate.swift */,
-				C0292E0722645B350077CFA3 /* ViewController.swift */,
-				C0292E1A2264D85F0077CFA3 /* SampleStructures.swift */,
 				C0292E0922645B350077CFA3 /* Main.storyboard */,
 				C0292E0C22645B380077CFA3 /* Assets.xcassets */,
 				C0292E0E22645B380077CFA3 /* LaunchScreen.storyboard */,
 				C0292E1122645B380077CFA3 /* Info.plist */,
-				F40E885322A65E71005A9478 /* PhoneCell.swift */,
 			);
 			path = RestManager;
+			sourceTree = "<group>";
+		};
+		F40E885522A75D6D005A9478 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				F40E885B22A75F5E005A9478 /* FriendViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		F40E885622A75D78005A9478 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F40E885D22A75FC1005A9478 /* Friend.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F40E885722A75D93005A9478 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				F40E885F22A76018005A9478 /* URL.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		F40E885822A75DA8005A9478 /* WebService */ = {
+			isa = PBXGroup;
+			children = (
+				90FB48EE22A0800300A5D8DA /* RestManager.swift */,
+			);
+			path = WebService;
+			sourceTree = "<group>";
+		};
+		F40E885922A75DB5005A9478 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C0292E0722645B350077CFA3 /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		F40E885A22A75DDE005A9478 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				F40E885322A65E71005A9478 /* PhoneCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -147,8 +201,10 @@
 				C0292E0822645B350077CFA3 /* ViewController.swift in Sources */,
 				90FB48EF22A0800300A5D8DA /* RestManager.swift in Sources */,
 				C0292E0622645B350077CFA3 /* AppDelegate.swift in Sources */,
-				C0292E1B2264D85F0077CFA3 /* SampleStructures.swift in Sources */,
+				F40E885C22A75F5E005A9478 /* FriendViewModel.swift in Sources */,
+				F40E885E22A75FC1005A9478 /* Friend.swift in Sources */,
 				F40E885422A65E71005A9478 /* PhoneCell.swift in Sources */,
+				F40E886022A76018005A9478 /* URL.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

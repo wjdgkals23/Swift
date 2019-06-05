@@ -112,6 +112,7 @@ class RestManager {
 }
 
 extension RestManager {
+
     enum HttpMethod: String {
         case get
         case post
