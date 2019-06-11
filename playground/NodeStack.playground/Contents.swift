@@ -33,27 +33,38 @@ public class Stack<T> {
     }
     
     public func push(_ node: Node) {
-        guard let lastNode = last else {
-            self.top?.next = node
-            node.previous = self.top
+        if isEmpty {
             top = node
-            return
         }
-        lastNode.next = node
-        node.previous = self.top
-        self.top = node
+        print(top?.value)
+        top?.next = node
+        node.previous = top
+        top = node
+        print(top?.value)
     }
     
-    public func pop() -> T?{
-        if isEmpty {
+    public func pop() -> T?{ //항상 마지막것만
+        guard let lastNode = last else {
             return nil
         }
-        let item: T? = self.top?.value
-        self.top
-        self.top = self.top?.previous
-        self.top?.next = nil
-//        self.top?.previous?.next = nil
+        let item = lastNode.value
+        lastNode.previous?.next = nil
         return item
+    }
+    
+    public init() {}
+    
+    public var count: Int {
+        guard var node = first else {
+            return 0
+        }
+        
+        var count = 1
+        while let next = node.previous {
+            node = next
+            count += 1
+        }
+        return count
     }
     
 }
@@ -66,6 +77,8 @@ stack.push(StackNode.init(value: 8))
 stack.push(StackNode.init(value: 9))
 stack.push(StackNode.init(value: 10))
 
+print(stack.count)
+
 let item = stack.pop()
 if let it = item {
     print(it)
@@ -73,9 +86,10 @@ if let it = item {
     print("nil")
 }
 
-if let last = stack.last {
-    print(last.value)
+if let first = stack.first {
+    print(first.value)
 } else {
     print("nil")
 }
+
 
