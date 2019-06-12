@@ -14,7 +14,7 @@ var sortedNames2 = names.sorted() { return $0 > $1 }
 sortedNames
 sortedNames2
 
-// 후위 클로저
+// 후위 클로저 + 고차 함수
 
 let digitNames = [
     0: "Zero", 1: "One", 2: "Two",   3: "Three", 4: "Four",
@@ -36,6 +36,12 @@ let strings = numbers.map { (number) -> String in
 }
 
 print(strings)
+
+let sortednumber = numbers.sorted { (first: Int, second: Int) -> Bool in
+    return first > second
+}
+
+print(sortednumber)
 
 // 중첩 함수 _ 값 캡쳐
 func makeIncrementer(forIncrement amount: Int) -> () -> Int { // Int 인자를 받고 () -> Int 형태의 함수를 반환한다.
