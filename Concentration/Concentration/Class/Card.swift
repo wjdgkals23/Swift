@@ -8,14 +8,26 @@
 
 import Foundation
 
-struct Card { // struct 의 특징은 값 타입이라는 것, 복사형태로 값이 전달된다는 것, 기본 init(모든 프로퍼티를 초기화)를 기본 제공한다는 것
+struct Card: Hashable {
+    
+    var hashValue: Int { return identifier }
+    
+    func hash(into hasher: inout Hasher){
+        hasher.combine(hashValue)
+    }
+    
+    static func == (lhs: Card, rhs: Card) -> Bool {
+        return lhs.hashValue == rhs.hashValue
+    }
+
+    // struct 의 특징은 값 타입이라는 것, 복사형태로 값이 전달된다는 것, 기본 init(모든 프로퍼티를 초기화)를 기본 제공한다는 것
     var isFaceUp = false
     var isMatched = false
-    var identifier: Int
+    private var identifier: Int
     
-    static var identifierFactory = 0
+    private static var identifierFactory = 0
     
-    static func getUniqueIdentifier() -> Int {
+    private static func getUniqueIdentifier() -> Int {
         Card.identifierFactory += 1
         return Card.identifierFactory
     }
