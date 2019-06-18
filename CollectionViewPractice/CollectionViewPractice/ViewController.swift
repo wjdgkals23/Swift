@@ -23,9 +23,6 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         if let cell: CollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: cellname, for: indexPath) as? CollectionViewCell {
             cell.nameLabel?.text = friendsData[indexPath.row].name + "(" + String(friendsData[indexPath.row].age) + ")"
             cell.nickLabel?.text = friendsData[indexPath.row].address_info.country + ","  + friendsData[indexPath.row].address_info.city
-            if(indexPath.row == 0) {
-                cell.nickLabel?.text = cell.nickLabel!.text! + "@@@@@@@@@@@@@@@@"
-            }
             return cell
         } else {
             print("Cell Init Error")
@@ -46,10 +43,10 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         flowLayout.sectionInset = UIEdgeInsets.init(top: 0, left: 15, bottom: 0, right: 15)
 //        flowLayout.sectionInset = UIEdgeInsets.zero
         flowLayout.minimumLineSpacing = 10
-        flowLayout.minimumInteritemSpacing = 10
+        flowLayout.minimumInteritemSpacing = 0
         
         let halfWidth = UIScreen.main.bounds.width/2.0
-        flowLayout.estimatedItemSize = CGSize(width: halfWidth - 30, height: 90)
+        flowLayout.estimatedItemSize = CGSize(width: halfWidth-15, height: 90)
 //        flowLayout.headerReferenceSize = CGSize(width: CGFloat(100), height: CGFloat(100)) 헤더 영역 설정
 //        flowLayout.itemSize = CGSize(
         
