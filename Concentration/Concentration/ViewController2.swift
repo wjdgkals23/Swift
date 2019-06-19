@@ -12,19 +12,11 @@ class ViewController2: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-//        let cardLine:CardLine = CardLine.init(1, 4, 30, 40, CGRect(x: self.view.frame.origin.x, y: self.view.frame.origin.y, width: self.view.frame.size.width, height: self.view.frame.size.height))
-        
+        let buttons: CardButtonDumps = CardButtonDumps.init(4, 5, self.view.frame.size.width)
+        for i in 0...buttons.buttonArr.count-1 {
+            self.view.addSubview(buttons.buttonArr[i])
+        }
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        let rect = CGRect.init(x: 0, y: 0, width: 30, height: 40)
-        let card = CardLine.init(6, 1, self.view.frame.size.width, self.view.frame.size.height, rect)
-
-        self.view.addSubview(card)
-    }
-    
-
     /*
     // MARK: - Navigation
 

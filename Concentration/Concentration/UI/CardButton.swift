@@ -10,13 +10,20 @@ import UIKit
 
 class CardButton: UIButton { // 가로 세로 잡힌 카드 UI 리턴
     
-    required init(_ rect:CGRect) {
-        super.init(frame: rect)
-        self.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setupUI()
+    }
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        setupUI()
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    func setupUI() {
+        self.backgroundColor = #colorLiteral(red: 0.521568656, green: 0.1098039225, blue: 0.05098039284, alpha: 1)
+//        self.frame = CGRect(x: 10, y: 10, width: 10, height: 10)
+        self.layer.cornerRadius = 3
+        self.contentEdgeInsets = UIEdgeInsets(top: 3, left: 3, bottom: 3, right: 3)
     }
     
 }
