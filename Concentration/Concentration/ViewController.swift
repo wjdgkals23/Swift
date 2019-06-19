@@ -55,14 +55,14 @@ class ViewController: UIViewController {
     }
     
 //    var emojiChoices: [String] = ["👻","🐯","🐻","🦀","🎲"]
-    private var emojiChoices: String = "👻🐯🐻🦀🎲"
-    var emoji: Dictionary<Int,String> = Dictionary<Int,String>()
+    private var emojiChoices: String = "👻🐯🐻🦀🎲🎗"
+    private var emoji = [Card:String]()
     func emoji(for card: Card) -> String {
-        if emoji[card.identifier] == nil, emojiChoices.count > 0 {
+        if emoji[card] == nil, emojiChoices.count > 0 {
             let randomStringIndex = emojiChoices.index(emojiChoices.startIndex, offsetBy: emojiChoices.count.arc4random)
-            emoji[card.identifier] = String(emojiChoices.remove(at: randomStringIndex))
+            emoji[card] = String(emojiChoices.remove(at: randomStringIndex))
         }
-        let chosenEmoji = emoji[card.identifier]
+        let chosenEmoji = emoji[card]
         return chosenEmoji ?? "?"
     }
 }
