@@ -12,7 +12,16 @@ class ViewController: UIViewController {
     
     lazy var game: Concentration = Concentration(numberOfPairsOfCards: cardButtons.count/2) // 초기화 부분에서는 init이 일어난 이후 self에 해당하는 요소들에 접근할 수 있다. lazy를 활용하면 self 요소들에 접근할 수 있다.
     
-    var flipCount: Int = 0 { didSet { flipCountLabel.text = "Flip : \(flipCount)"} }
+    var flipCount: Int = 0 {
+        didSet {
+            let attributes: [NSAttributedString.Key:Any] = [
+                .strokeWidth: 5.0,
+                .strokeColor: #colorLiteral(red: 0.9372549057, green: 0.3490196168, blue: 0.1921568662, alpha: 1)
+            ]
+            let attributedString = NSAttributedString.init(string: "Flip : \(flipCount)", attributes: attributes)
+            flipCountLabel.attributedText = attributedString
+        }
+    }
     @IBOutlet var cardButtons: [UIButton]!
     @IBOutlet weak var flipCountLabel: UILabel!
     
