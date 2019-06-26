@@ -1,0 +1,482 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F450B82222C1AEE900DAFFE4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F450B82122C1AEE900DAFFE4 /* AppDelegate.swift */; };
+		F450B82422C1AEE900DAFFE4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F450B82322C1AEE900DAFFE4 /* ViewController.swift */; };
+		F450B82722C1AEE900DAFFE4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F450B82522C1AEE900DAFFE4 /* Main.storyboard */; };
+		F450B82922C1AEEA00DAFFE4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F450B82822C1AEEA00DAFFE4 /* Assets.xcassets */; };
+		F450B82C22C1AEEA00DAFFE4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F450B82A22C1AEEA00DAFFE4 /* LaunchScreen.storyboard */; };
+		F450B83722C1AEEA00DAFFE4 /* PlayingCardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F450B83622C1AEEA00DAFFE4 /* PlayingCardTests.swift */; };
+		F450B84322C1AF5000DAFFE4 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = F450B84222C1AF5000DAFFE4 /* Card.swift */; };
+		F450B84522C1B44000DAFFE4 /* CardDeck.swift in Sources */ = {isa = PBXBuildFile; fileRef = F450B84422C1B44000DAFFE4 /* CardDeck.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F450B83322C1AEEA00DAFFE4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F450B81622C1AEE900DAFFE4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F450B81D22C1AEE900DAFFE4;
+			remoteInfo = PlayingCard;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		F450B81E22C1AEE900DAFFE4 /* PlayingCard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlayingCard.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F450B82122C1AEE900DAFFE4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		F450B82322C1AEE900DAFFE4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F450B82622C1AEE900DAFFE4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F450B82822C1AEEA00DAFFE4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F450B82B22C1AEEA00DAFFE4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F450B82D22C1AEEA00DAFFE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F450B83222C1AEEA00DAFFE4 /* PlayingCardTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlayingCardTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F450B83622C1AEEA00DAFFE4 /* PlayingCardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayingCardTests.swift; sourceTree = "<group>"; };
+		F450B83822C1AEEA00DAFFE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F450B84222C1AF5000DAFFE4 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		F450B84422C1B44000DAFFE4 /* CardDeck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDeck.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F450B81B22C1AEE900DAFFE4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F450B82F22C1AEEA00DAFFE4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F450B81522C1AEE900DAFFE4 = {
+			isa = PBXGroup;
+			children = (
+				F450B82022C1AEE900DAFFE4 /* PlayingCard */,
+				F450B83522C1AEEA00DAFFE4 /* PlayingCardTests */,
+				F450B81F22C1AEE900DAFFE4 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F450B81F22C1AEE900DAFFE4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F450B81E22C1AEE900DAFFE4 /* PlayingCard.app */,
+				F450B83222C1AEEA00DAFFE4 /* PlayingCardTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F450B82022C1AEE900DAFFE4 /* PlayingCard */ = {
+			isa = PBXGroup;
+			children = (
+				F450B84122C1AF2400DAFFE4 /* Supporting Files */,
+				F450B82322C1AEE900DAFFE4 /* ViewController.swift */,
+				F450B82522C1AEE900DAFFE4 /* Main.storyboard */,
+				F450B82822C1AEEA00DAFFE4 /* Assets.xcassets */,
+				F450B82D22C1AEEA00DAFFE4 /* Info.plist */,
+				F450B84222C1AF5000DAFFE4 /* Card.swift */,
+				F450B84422C1B44000DAFFE4 /* CardDeck.swift */,
+			);
+			path = PlayingCard;
+			sourceTree = "<group>";
+		};
+		F450B83522C1AEEA00DAFFE4 /* PlayingCardTests */ = {
+			isa = PBXGroup;
+			children = (
+				F450B83622C1AEEA00DAFFE4 /* PlayingCardTests.swift */,
+				F450B83822C1AEEA00DAFFE4 /* Info.plist */,
+			);
+			path = PlayingCardTests;
+			sourceTree = "<group>";
+		};
+		F450B84122C1AF2400DAFFE4 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F450B82122C1AEE900DAFFE4 /* AppDelegate.swift */,
+				F450B82A22C1AEEA00DAFFE4 /* LaunchScreen.storyboard */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F450B81D22C1AEE900DAFFE4 /* PlayingCard */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F450B83B22C1AEEA00DAFFE4 /* Build configuration list for PBXNativeTarget "PlayingCard" */;
+			buildPhases = (
+				F450B81A22C1AEE900DAFFE4 /* Sources */,
+				F450B81B22C1AEE900DAFFE4 /* Frameworks */,
+				F450B81C22C1AEE900DAFFE4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PlayingCard;
+			productName = PlayingCard;
+			productReference = F450B81E22C1AEE900DAFFE4 /* PlayingCard.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F450B83122C1AEEA00DAFFE4 /* PlayingCardTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F450B83E22C1AEEA00DAFFE4 /* Build configuration list for PBXNativeTarget "PlayingCardTests" */;
+			buildPhases = (
+				F450B82E22C1AEEA00DAFFE4 /* Sources */,
+				F450B82F22C1AEEA00DAFFE4 /* Frameworks */,
+				F450B83022C1AEEA00DAFFE4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F450B83422C1AEEA00DAFFE4 /* PBXTargetDependency */,
+			);
+			name = PlayingCardTests;
+			productName = PlayingCardTests;
+			productReference = F450B83222C1AEEA00DAFFE4 /* PlayingCardTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F450B81622C1AEE900DAFFE4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1020;
+				LastUpgradeCheck = 1020;
+				ORGANIZATIONNAME = HMJeong;
+				TargetAttributes = {
+					F450B81D22C1AEE900DAFFE4 = {
+						CreatedOnToolsVersion = 10.2;
+					};
+					F450B83122C1AEEA00DAFFE4 = {
+						CreatedOnToolsVersion = 10.2;
+						TestTargetID = F450B81D22C1AEE900DAFFE4;
+					};
+				};
+			};
+			buildConfigurationList = F450B81922C1AEE900DAFFE4 /* Build configuration list for PBXProject "PlayingCard" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F450B81522C1AEE900DAFFE4;
+			productRefGroup = F450B81F22C1AEE900DAFFE4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F450B81D22C1AEE900DAFFE4 /* PlayingCard */,
+				F450B83122C1AEEA00DAFFE4 /* PlayingCardTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F450B81C22C1AEE900DAFFE4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F450B82C22C1AEEA00DAFFE4 /* LaunchScreen.storyboard in Resources */,
+				F450B82922C1AEEA00DAFFE4 /* Assets.xcassets in Resources */,
+				F450B82722C1AEE900DAFFE4 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F450B83022C1AEEA00DAFFE4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F450B81A22C1AEE900DAFFE4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F450B82422C1AEE900DAFFE4 /* ViewController.swift in Sources */,
+				F450B84322C1AF5000DAFFE4 /* Card.swift in Sources */,
+				F450B84522C1B44000DAFFE4 /* CardDeck.swift in Sources */,
+				F450B82222C1AEE900DAFFE4 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F450B82E22C1AEEA00DAFFE4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F450B83722C1AEEA00DAFFE4 /* PlayingCardTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F450B83422C1AEEA00DAFFE4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F450B81D22C1AEE900DAFFE4 /* PlayingCard */;
+			targetProxy = F450B83322C1AEEA00DAFFE4 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		F450B82522C1AEE900DAFFE4 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F450B82622C1AEE900DAFFE4 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		F450B82A22C1AEEA00DAFFE4 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F450B82B22C1AEEA00DAFFE4 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F450B83922C1AEEA00DAFFE4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		F450B83A22C1AEEA00DAFFE4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F450B83C22C1AEEA00DAFFE4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = PlayingCard/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = edu.per.hamin.PlayingCard;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F450B83D22C1AEEA00DAFFE4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = PlayingCard/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = edu.per.hamin.PlayingCard;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		F450B83F22C1AEEA00DAFFE4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = PlayingCardTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = edu.per.hamin.PlayingCardTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PlayingCard.app/PlayingCard";
+			};
+			name = Debug;
+		};
+		F450B84022C1AEEA00DAFFE4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = PlayingCardTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = edu.per.hamin.PlayingCardTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PlayingCard.app/PlayingCard";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F450B81922C1AEE900DAFFE4 /* Build configuration list for PBXProject "PlayingCard" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F450B83922C1AEEA00DAFFE4 /* Debug */,
+				F450B83A22C1AEEA00DAFFE4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F450B83B22C1AEEA00DAFFE4 /* Build configuration list for PBXNativeTarget "PlayingCard" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F450B83C22C1AEEA00DAFFE4 /* Debug */,
+				F450B83D22C1AEEA00DAFFE4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F450B83E22C1AEEA00DAFFE4 /* Build configuration list for PBXNativeTarget "PlayingCardTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F450B83F22C1AEEA00DAFFE4 /* Debug */,
+				F450B84022C1AEEA00DAFFE4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F450B81622C1AEE900DAFFE4 /* Project object */;
+}
