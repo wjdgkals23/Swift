@@ -15,10 +15,19 @@
 		F450B83722C1AEEA00DAFFE4 /* PlayingCardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F450B83622C1AEEA00DAFFE4 /* PlayingCardTests.swift */; };
 		F450B84322C1AF5000DAFFE4 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = F450B84222C1AF5000DAFFE4 /* Card.swift */; };
 		F450B84522C1B44000DAFFE4 /* CardDeck.swift in Sources */ = {isa = PBXBuildFile; fileRef = F450B84422C1B44000DAFFE4 /* CardDeck.swift */; };
+		F450B86722C34CAA00DAFFE4 /* PlayingCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F450B86622C34CAA00DAFFE4 /* PlayingCardView.swift */; };
+		F450B86F22C4BB3200DAFFE4 /* PlayingCardUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F450B86E22C4BB3200DAFFE4 /* PlayingCardUITests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		F450B83322C1AEEA00DAFFE4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F450B81622C1AEE900DAFFE4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F450B81D22C1AEE900DAFFE4;
+			remoteInfo = PlayingCard;
+		};
+		F450B87122C4BB3200DAFFE4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = F450B81622C1AEE900DAFFE4 /* Project object */;
 			proxyType = 1;
@@ -40,6 +49,10 @@
 		F450B83822C1AEEA00DAFFE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F450B84222C1AF5000DAFFE4 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		F450B84422C1B44000DAFFE4 /* CardDeck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDeck.swift; sourceTree = "<group>"; };
+		F450B86622C34CAA00DAFFE4 /* PlayingCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayingCardView.swift; sourceTree = "<group>"; };
+		F450B86C22C4BB3200DAFFE4 /* PlayingCardUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlayingCardUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F450B86E22C4BB3200DAFFE4 /* PlayingCardUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayingCardUITests.swift; sourceTree = "<group>"; };
+		F450B87022C4BB3200DAFFE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +70,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F450B86922C4BB3200DAFFE4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -65,6 +85,7 @@
 			children = (
 				F450B82022C1AEE900DAFFE4 /* PlayingCard */,
 				F450B83522C1AEEA00DAFFE4 /* PlayingCardTests */,
+				F450B86D22C4BB3200DAFFE4 /* PlayingCardUITests */,
 				F450B81F22C1AEE900DAFFE4 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -74,6 +95,7 @@
 			children = (
 				F450B81E22C1AEE900DAFFE4 /* PlayingCard.app */,
 				F450B83222C1AEEA00DAFFE4 /* PlayingCardTests.xctest */,
+				F450B86C22C4BB3200DAFFE4 /* PlayingCardUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -88,6 +110,7 @@
 				F450B82D22C1AEEA00DAFFE4 /* Info.plist */,
 				F450B84222C1AF5000DAFFE4 /* Card.swift */,
 				F450B84422C1B44000DAFFE4 /* CardDeck.swift */,
+				F450B86622C34CAA00DAFFE4 /* PlayingCardView.swift */,
 			);
 			path = PlayingCard;
 			sourceTree = "<group>";
@@ -108,6 +131,15 @@
 				F450B82A22C1AEEA00DAFFE4 /* LaunchScreen.storyboard */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F450B86D22C4BB3200DAFFE4 /* PlayingCardUITests */ = {
+			isa = PBXGroup;
+			children = (
+				F450B86E22C4BB3200DAFFE4 /* PlayingCardUITests.swift */,
+				F450B87022C4BB3200DAFFE4 /* Info.plist */,
+			);
+			path = PlayingCardUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -148,6 +180,24 @@
 			productReference = F450B83222C1AEEA00DAFFE4 /* PlayingCardTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		F450B86B22C4BB3200DAFFE4 /* PlayingCardUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F450B87322C4BB3200DAFFE4 /* Build configuration list for PBXNativeTarget "PlayingCardUITests" */;
+			buildPhases = (
+				F450B86822C4BB3200DAFFE4 /* Sources */,
+				F450B86922C4BB3200DAFFE4 /* Frameworks */,
+				F450B86A22C4BB3200DAFFE4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F450B87222C4BB3200DAFFE4 /* PBXTargetDependency */,
+			);
+			name = PlayingCardUITests;
+			productName = PlayingCardUITests;
+			productReference = F450B86C22C4BB3200DAFFE4 /* PlayingCardUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -162,6 +212,10 @@
 						CreatedOnToolsVersion = 10.2;
 					};
 					F450B83122C1AEEA00DAFFE4 = {
+						CreatedOnToolsVersion = 10.2;
+						TestTargetID = F450B81D22C1AEE900DAFFE4;
+					};
+					F450B86B22C4BB3200DAFFE4 = {
 						CreatedOnToolsVersion = 10.2;
 						TestTargetID = F450B81D22C1AEE900DAFFE4;
 					};
@@ -182,6 +236,7 @@
 			targets = (
 				F450B81D22C1AEE900DAFFE4 /* PlayingCard */,
 				F450B83122C1AEEA00DAFFE4 /* PlayingCardTests */,
+				F450B86B22C4BB3200DAFFE4 /* PlayingCardUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -204,6 +259,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F450B86A22C4BB3200DAFFE4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -214,6 +276,7 @@
 				F450B82422C1AEE900DAFFE4 /* ViewController.swift in Sources */,
 				F450B84322C1AF5000DAFFE4 /* Card.swift in Sources */,
 				F450B84522C1B44000DAFFE4 /* CardDeck.swift in Sources */,
+				F450B86722C34CAA00DAFFE4 /* PlayingCardView.swift in Sources */,
 				F450B82222C1AEE900DAFFE4 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -226,6 +289,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F450B86822C4BB3200DAFFE4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F450B86F22C4BB3200DAFFE4 /* PlayingCardUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -233,6 +304,11 @@
 			isa = PBXTargetDependency;
 			target = F450B81D22C1AEE900DAFFE4 /* PlayingCard */;
 			targetProxy = F450B83322C1AEEA00DAFFE4 /* PBXContainerItemProxy */;
+		};
+		F450B87222C4BB3200DAFFE4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F450B81D22C1AEE900DAFFE4 /* PlayingCard */;
+			targetProxy = F450B87122C4BB3200DAFFE4 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -446,6 +522,42 @@
 			};
 			name = Release;
 		};
+		F450B87422C4BB3200DAFFE4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = PlayingCardUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = edu.per.hamin.PlayingCardUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = PlayingCard;
+			};
+			name = Debug;
+		};
+		F450B87522C4BB3200DAFFE4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = PlayingCardUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = edu.per.hamin.PlayingCardUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = PlayingCard;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -472,6 +584,15 @@
 			buildConfigurations = (
 				F450B83F22C1AEEA00DAFFE4 /* Debug */,
 				F450B84022C1AEEA00DAFFE4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F450B87322C4BB3200DAFFE4 /* Build configuration list for PBXNativeTarget "PlayingCardUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F450B87422C4BB3200DAFFE4 /* Debug */,
+				F450B87522C4BB3200DAFFE4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
