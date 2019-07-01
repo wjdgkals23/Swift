@@ -10,13 +10,13 @@
 		F450B82222C1AEE900DAFFE4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F450B82122C1AEE900DAFFE4 /* AppDelegate.swift */; };
 		F450B82422C1AEE900DAFFE4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F450B82322C1AEE900DAFFE4 /* ViewController.swift */; };
 		F450B82722C1AEE900DAFFE4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F450B82522C1AEE900DAFFE4 /* Main.storyboard */; };
-		F450B82922C1AEEA00DAFFE4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F450B82822C1AEEA00DAFFE4 /* Assets.xcassets */; };
 		F450B82C22C1AEEA00DAFFE4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F450B82A22C1AEEA00DAFFE4 /* LaunchScreen.storyboard */; };
 		F450B83722C1AEEA00DAFFE4 /* PlayingCardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F450B83622C1AEEA00DAFFE4 /* PlayingCardTests.swift */; };
 		F450B84322C1AF5000DAFFE4 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = F450B84222C1AF5000DAFFE4 /* Card.swift */; };
 		F450B84522C1B44000DAFFE4 /* CardDeck.swift in Sources */ = {isa = PBXBuildFile; fileRef = F450B84422C1B44000DAFFE4 /* CardDeck.swift */; };
 		F450B86722C34CAA00DAFFE4 /* PlayingCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F450B86622C34CAA00DAFFE4 /* PlayingCardView.swift */; };
 		F450B86F22C4BB3200DAFFE4 /* PlayingCardUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F450B86E22C4BB3200DAFFE4 /* PlayingCardUITests.swift */; };
+		F467A59E22C98F4B0013F015 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F476B8DF22C98E99001D6CF9 /* Images.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,7 +41,6 @@
 		F450B82122C1AEE900DAFFE4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F450B82322C1AEE900DAFFE4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F450B82622C1AEE900DAFFE4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		F450B82822C1AEEA00DAFFE4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F450B82B22C1AEEA00DAFFE4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F450B82D22C1AEEA00DAFFE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F450B83222C1AEEA00DAFFE4 /* PlayingCardTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlayingCardTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -53,6 +52,7 @@
 		F450B86C22C4BB3200DAFFE4 /* PlayingCardUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlayingCardUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F450B86E22C4BB3200DAFFE4 /* PlayingCardUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayingCardUITests.swift; sourceTree = "<group>"; };
 		F450B87022C4BB3200DAFFE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F476B8DF22C98E99001D6CF9 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,7 +106,6 @@
 				F450B84122C1AF2400DAFFE4 /* Supporting Files */,
 				F450B82322C1AEE900DAFFE4 /* ViewController.swift */,
 				F450B82522C1AEE900DAFFE4 /* Main.storyboard */,
-				F450B82822C1AEEA00DAFFE4 /* Assets.xcassets */,
 				F450B82D22C1AEEA00DAFFE4 /* Info.plist */,
 				F450B84222C1AF5000DAFFE4 /* Card.swift */,
 				F450B84422C1B44000DAFFE4 /* CardDeck.swift */,
@@ -129,6 +128,7 @@
 			children = (
 				F450B82122C1AEE900DAFFE4 /* AppDelegate.swift */,
 				F450B82A22C1AEEA00DAFFE4 /* LaunchScreen.storyboard */,
+				F476B8DF22C98E99001D6CF9 /* Images.xcassets */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -246,8 +246,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F467A59E22C98F4B0013F015 /* Images.xcassets in Resources */,
 				F450B82C22C1AEEA00DAFFE4 /* LaunchScreen.storyboard in Resources */,
-				F450B82922C1AEEA00DAFFE4 /* Assets.xcassets in Resources */,
 				F450B82722C1AEE900DAFFE4 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
