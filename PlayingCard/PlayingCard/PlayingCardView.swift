@@ -42,7 +42,7 @@ class PlayingCardView: UIView {
 
     private func centeredArributedString(_ string: String, fontSize: CGFloat) -> NSAttributedString { // 카드의 글자를 만드는 과정 라벨안에 들어갈 문자열을 셋팅하는 방법
         var font = UIFont.preferredFont(forTextStyle: .body).withSize(fontSize) // 시스템 폰트 설정
-        font = UIFontMetrics(forTextStyle: .body).scaledFont(for: font) // 폰트 스타일(스타일, 크기) 설정
+        font = UIFontMetrics(forTextStyle: .body).scaledFont(for: font) // 폰트 스타일 설정,적용
         let paragraphStyle = NSMutableParagraphStyle() // 문단 모양
         paragraphStyle.alignment = .center // 가운데 정렬
         return NSAttributedString.init(string: string, attributes: [.paragraphStyle:paragraphStyle, .font:font])
