@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ConcentrationViewController: UIViewController {
     
     lazy var game: Concentration = Concentration(numberOfPairsOfCards: cardButtons.count/2) // 초기화 부분에서는 init이 일어난 이후 self에 해당하는 요소들에 접근할 수 있다. lazy를 활용하면 self 요소들에 접근할 수 있다.
     
@@ -41,21 +41,30 @@ class ViewController: UIViewController {
     }
     
     func updateViewFromModel() {
-        for index in cardButtons.indices {
-            let button = cardButtons[index]
-            let card = game.cards[index]
-            if card.isFaceUp {
-                button.setTitle(emoji(for: card), for: UIControl.State.normal)
-                button.backgroundColor = #colorLiteral(red: 0.9372549057, green: 0.3490196168, blue: 0.1921568662, alpha: 1)
-            } else {
-                button.setTitle("", for: UIControl.State.normal)
-                button.backgroundColor = card.isMatched ? #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0) : #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        if (cardButtons != nil) {
+            for index in cardButtons.indices {
+                let button = cardButtons[index]
+                let card = game.cards[index]
+                if card.isFaceUp {
+                    button.setTitle(emoji(for: card), for: UIControl.State.normal)
+                    button.backgroundColor = #colorLiteral(red: 0.9372549057, green: 0.3490196168, blue: 0.1921568662, alpha: 1)
+                } else {
+                    button.setTitle("", for: UIControl.State.normal)
+                    button.backgroundColor = card.isMatched ? #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0) : #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+                }
             }
         }
     }
     
-//    var emojiChoices: [String] = ["👻","🐯","🐻","🦀","🎲"]
-    private var emojiChoices: String = "👻🐯🐻🦀🎲🎗"
+    var theme: String? {
+        didSet {
+            emojiChoices = theme ?? ""
+            emoji = [:]
+            updateViewFromModel() // didSet으로 UI가 준비되기전에 데이터를 건드려 UI를 변경시킨다.
+        }
+    }
+    
+    private var emojiChoices = "🦇😱🙀👿🎃👻🍭🍬🍎"
     private var emoji = [Card:String]()
     func emoji(for card: Card) -> String {
         if emoji[card] == nil, emojiChoices.count > 0 {
