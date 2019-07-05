@@ -1,6 +1,6 @@
 import Foundation
 
-public func solution(_ A : inout [Int]) -> Int {
+public func solution8_1(_ A : inout [Int]) -> Int {
     // write your code in Swift 4.2.1 (Linux)
     if (A.count == 0) {
         return -1
@@ -33,6 +33,56 @@ public func solution(_ A : inout [Int]) -> Int {
         if (leader == A[i]) {
             return i
         }
+    }
+    
+    return -1
+}
+// 66퍼 leader 상수가 없는 경우 가장 마직막에 있는 요소가 가짜 leader로 임명된다.
+
+
+public func solution8_1_1(_ A : inout [Int]) -> Int {
+    // write your code in Swift 4.2.1 (Linux)
+    if (A.count == 0) {
+        return -1
+    }
+    if (A.count == 1) {
+        return 0
+    }
+    
+    var value = 0
+    var size = 0
+    
+    for i in A.indices {
+        if (size == 0) {
+            size+=1
+            value = A[i]
+        } else {
+            if(value != A[i]) {
+                size-=1
+            } else {
+                size+=1
+            }
+        }
+    }
+    
+    var count = 0
+    var pos = 0
+    for i in A.indices {
+        if(value == A[i]) {
+            count+=1
+            pos = i
+        }
+    }
+    
+    var half = 0
+    
+    half = (A.count + 1)/2
+    if(A.count%2 == 0) {
+        half = A.count/2
+    }
+    
+    if(count > half) {
+        return pos
     }
     
     return -1
