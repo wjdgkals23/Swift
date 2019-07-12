@@ -74,16 +74,69 @@ public func solution8_1_1(_ A : inout [Int]) -> Int {
         }
     }
     
-    var half = 0
-    
-    half = (A.count + 1)/2
+    var half:Int = 0
+
     if(A.count%2 == 0) {
         half = A.count/2
+        return count > half ? pos : -1
     }
     
-    if(count > half) {
-        return pos
+    return count >= (A.count + 1)/2 ? pos : -1
+}
+
+var arr = [2,1,1,3]
+print(solution8_1_1(&arr))
+
+public func solution8_2(_ A : inout [Int]) -> Int {
+    // write your code in Swift 4.2.1 (Linux)
+    if (A.count == 0) {
+        return -1
+    }
+    if (A.count == 1) {
+        return 0
     }
     
-    return -1
+    var value = 0
+    var size = 0
+    var count = 0
+    var temp = 0
+    var ans = 0
+    
+    for i in A.indices {
+        if (size == 0) {
+            size+=1
+            value = A[i]
+        } else {
+            if(value != A[i]) {
+                size-=1
+            } else {
+                size+=1
+            }
+        }
+    }
+    
+    for i in A.indices {
+        if(value == A[i]) {
+            count+=1
+        }
+    }
+    
+    for i in 0...A.count-1 {
+        if(value == A[i]) {
+            count-=1
+            temp+=1
+            if(isLeader(temp, i+1) && isLeader(count, A.count-i-1)) {
+                ans+=1
+            }
+        }
+    }
+    
+    return ans
+}
+public func isLeader(_ a:Int, _ b:Int) -> Bool {
+    if(b%2 == 0) {
+        let half = b/2
+        return a > half ? true : false
+    }
+    return a >= (b + 1)/2 ? true : false
 }

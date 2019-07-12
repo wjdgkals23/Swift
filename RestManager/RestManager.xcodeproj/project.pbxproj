@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		903B91DC22D86E5F00EF4385 /* PostManMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 903B91DB22D86E5F00EF4385 /* PostManMainViewController.swift */; };
 		90FB48EF22A0800300A5D8DA /* RestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90FB48EE22A0800300A5D8DA /* RestManager.swift */; };
 		C0292E0622645B350077CFA3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0292E0522645B350077CFA3 /* AppDelegate.swift */; };
 		C0292E0822645B350077CFA3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0292E0722645B350077CFA3 /* ViewController.swift */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		903B91DB22D86E5F00EF4385 /* PostManMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostManMainViewController.swift; sourceTree = "<group>"; };
 		90FB48EE22A0800300A5D8DA /* RestManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestManager.swift; sourceTree = "<group>"; };
 		C0292E0222645B350077CFA3 /* RestManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RestManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0292E0522645B350077CFA3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				C0292E0722645B350077CFA3 /* ViewController.swift */,
+				903B91DB22D86E5F00EF4385 /* PostManMainViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -198,6 +201,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				903B91DC22D86E5F00EF4385 /* PostManMainViewController.swift in Sources */,
 				C0292E0822645B350077CFA3 /* ViewController.swift in Sources */,
 				90FB48EF22A0800300A5D8DA /* RestManager.swift in Sources */,
 				C0292E0622645B350077CFA3 /* AppDelegate.swift in Sources */,
