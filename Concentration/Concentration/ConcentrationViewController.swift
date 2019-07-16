@@ -59,7 +59,7 @@ class ConcentrationViewController: UIViewController {
     var theme: String? {
         didSet {
             emojiChoices = theme ?? ""
-            emoji = [:]
+            emoji = [Card:String]()
             updateViewFromModel() // didSet으로 UI가 준비되기전에 데이터를 건드려 UI를 변경시킨다.
         }
     }

@@ -19,15 +19,16 @@ class ViewController: UIViewController {
             playingCardView.addGestureRecognizer(swipe)
             let pinch = UIPinchGestureRecognizer(target: playingCardView, action: #selector(playingCardView.adjustFaceCardScale))
             playingCardView.addGestureRecognizer(pinch)
+            playingCardView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(flipCard(_:))))
         }
     }
     
-    @IBAction func flipCard(_ sender: UITapGestureRecognizer) {
-        switch (sender.state) {
+    @IBAction func flipCard(_ recognizer: UITapGestureRecognizer) {
+        switch (recognizer.state) {
         case .ended:
             playingCardView.isFaceUp = !playingCardView.isFaceUp
-        @unknown default:
-            print("not")
+        default:
+            break;
         }
     }
     

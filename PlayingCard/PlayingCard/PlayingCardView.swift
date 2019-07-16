@@ -73,6 +73,7 @@ class PlayingCardView: UIView {
         let roundedRect = UIBezierPath.init(roundedRect: bounds, cornerRadius: cornerRadius)
         roundedRect.addClip() // 잘모르겟어
         UIColor.white.setFill()
+        UIColor.black.setStroke()
         roundedRect.fill()
         
         if isFaceUp { // 뒤집어졌는지 아닌지 판단

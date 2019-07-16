@@ -140,3 +140,62 @@ public func isLeader(_ a:Int, _ b:Int) -> Bool {
     }
     return a >= (b + 1)/2 ? true : false
 }
+
+public func solution8_2(_ A : inout [Int]) -> Int {
+    // write your code in Swift 4.2.1 (Linux)
+    if (A.count == 1) {
+        return 0
+    }
+    
+    var value = 0
+    var size = 0
+    var count = 0
+    var ans = 0
+    
+    for i in A.indices {
+        if (size == 0) {
+            size+=1
+            value = A[i]
+        } else {
+            if(value != A[i]) {
+                size-=1
+            } else {
+                size+=1
+            }
+        }
+    }
+    
+    for i in A.indices {
+        if(value == A[i]) {
+            count+=1
+        }
+    }
+    
+//
+//    var value2 = 0
+//    var size2 = 0
+//    for i in A.indices {
+//        if (size2 == 0) {
+//            size2+=1
+//            value2 = A[i]
+//        } else {
+//            if(value2 != A[i]) {
+//                size2-=1
+//            } else {
+//                size2+=1
+//            }
+//        }
+//        if(value2 == value) {
+//            if(size2 > (i+1)/2 && (size-size2) > (A.count-i-1)/2) {
+//                ans+=1
+//            }
+//        }
+//    }
+////    if(A.count%2==0) {
+////        if(A.count/2 >= count) { return 0 }
+////    }
+////
+////    if((A.count+1)/2 > count) { return 0 }
+    
+    return ans
+}
