@@ -30,7 +30,6 @@
 
 import UIKit
 import RealmSwift
-
 //
 // MARK: - Categories Table View Controller
 //
@@ -39,32 +38,16 @@ class CategoriesTableViewController: UITableViewController {
     // MARK: - Variables And Properties
     //
     var selectedCategory: Category!
-    var realm: Realm? {
-        do {
-            let inRealm = try Realm()
-            return inRealm
-        } catch {
-            return nil
-        }
-    }
-    
-    lazy var categoryCallFunc: () -> Results<Category>? = {
-        [weak self] in
-        if let inRealm = self?.realm {
-            return { inRealm.objects(Category.self) }()
-        } else {
-            return nil
-        }
-    }
-    
     var categories:Results<Category>? = nil
-    //
-    // MARK: - View Controller
-    //
+    var myRealm = MyRealm.shared
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        categories = categoryCallFunc()
-        populateDefaultCategories()
+//        categories = categoryCallFunc()
+        categories = myRealm.callCategoriesItem()
+        if categories == nil || categories!.count == 0 {
+            populateDefaultCategories()
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -74,25 +57,17 @@ class CategoriesTableViewController: UITableViewController {
     
     private func populateDefaultCategories() {
         if let r_categories = categories { // 1
-            print(r_categories.count)
-            categories = realm!.objects(Category.self) // 5
-        } else {
-            do {
-                try realm!.write() { // 2
-                    print("hi")
-                    let defaultCategories =
-                        ["Birds", "Mammals", "Flora", "Reptiles", "Arachnids" ] // 3
-                    
-                    for category in defaultCategories { // 4
-                        let newCategory = Category()
-                        newCategory.name = category
-                        
-                        realm!.add(newCategory)
-                    }
-                }
-            } catch {
-                print(error)
+            if r_categories.count == 0 {
+                myRealm.addDefaultCategoriesItem()
+                categories = myRealm.callCategoriesItem()
+                self.tableView.reloadData()
+            } else {
+                categories = myRealm.callCategoriesItem() // 5
             }
+        } else {
+            myRealm.addDefaultCategoriesItem()
+            categories = myRealm.callCategoriesItem()
+            self.tableView.reloadData()
         }
     }
 }

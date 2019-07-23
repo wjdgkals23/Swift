@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -19,6 +19,7 @@
 		553A7774217FA517008B1BAF /* LogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553A776D217FA517008B1BAF /* LogViewController.swift */; };
 		553A7775217FA517008B1BAF /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553A776E217FA517008B1BAF /* MapViewController.swift */; };
 		553A7776217FA517008B1BAF /* SpecimenAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553A776F217FA517008B1BAF /* SpecimenAnnotation.swift */; };
+		9026B51022E73F6B00BBB63D /* SingleTonRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9026B50F22E73F6B00BBB63D /* SingleTonRealm.swift */; };
 		F411D83122E5987900BC0AC9 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = F411D83022E5987900BC0AC9 /* Category.swift */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +38,7 @@
 		553A776E217FA517008B1BAF /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		553A776F217FA517008B1BAF /* SpecimenAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpecimenAnnotation.swift; sourceTree = "<group>"; };
 		897E0CB1035FC1EDFDC4DEE6 /* Pods-Agents Partner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Agents Partner.release.xcconfig"; path = "Target Support Files/Pods-Agents Partner/Pods-Agents Partner.release.xcconfig"; sourceTree = "<group>"; };
+		9026B50F22E73F6B00BBB63D /* SingleTonRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleTonRealm.swift; sourceTree = "<group>"; };
 		A49ECFC67475A0DFB0B6213A /* Pods-Agents Partner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Agents Partner.debug.xcconfig"; path = "Target Support Files/Pods-Agents Partner/Pods-Agents Partner.debug.xcconfig"; sourceTree = "<group>"; };
 		B507F8F9A7B9654CB54BE0BD /* Pods_Agents_Partner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Agents_Partner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F411D83022E5987900BC0AC9 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 				553A7769217FA517008B1BAF /* Specimen.swift */,
 				553A776F217FA517008B1BAF /* SpecimenAnnotation.swift */,
 				F411D83022E5987900BC0AC9 /* Category.swift */,
+				9026B50F22E73F6B00BBB63D /* SingleTonRealm.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -271,6 +274,7 @@
 				553A7774217FA517008B1BAF /* LogViewController.swift in Sources */,
 				F411D83122E5987900BC0AC9 /* Category.swift in Sources */,
 				553A7771217FA517008B1BAF /* CategoriesTableViewController.swift in Sources */,
+				9026B51022E73F6B00BBB63D /* SingleTonRealm.swift in Sources */,
 				553A7775217FA517008B1BAF /* MapViewController.swift in Sources */,
 				553A7776217FA517008B1BAF /* SpecimenAnnotation.swift in Sources */,
 			);
