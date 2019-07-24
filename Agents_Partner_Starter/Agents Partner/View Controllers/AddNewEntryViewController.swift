@@ -78,6 +78,34 @@ class AddNewEntryViewController: UIViewController {
         }
     }
     
+    func addNewSpecimen() {
+        let newSpecimen = Specimen() // 3
+        newSpecimen.name = nameTextField.text! // 4
+        newSpecimen.category = selectedCategory
+        newSpecimen.specimenDescription = descriptionTextField.text
+        newSpecimen.latitude = selectedAnnotation.coordinate.latitude
+        newSpecimen.longitude = selectedAnnotation.coordinate.longitude
+        if (myRealm.addNewSpecimen(newSpecimen: newSpecimen)){
+            specimen = newSpecimen
+        } else {
+            let alert = UIAlertController(title: "추가 실패", message: "추가에 실패하였습니다.", preferredStyle: .alert)
+            let defaultAction = UIAlertAction(title: "OK", style: .cancel) { action in
+                alert.dismiss(animated: true, completion: nil)
+            }
+            alert.addAction(defaultAction)
+            present(alert, animated: false, completion: nil)
+        }
+    }
+    
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        if (validateFields()) {
+            addNewSpecimen()
+            return true
+        } else {
+            return false
+        }
+    }
+    
     //
     // MARK: - View Controller
     //

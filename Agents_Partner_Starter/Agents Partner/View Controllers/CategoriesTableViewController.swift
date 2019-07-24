@@ -52,7 +52,6 @@ class CategoriesTableViewController: UITableViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        print(Realm.Configuration.defaultConfiguration.fileURL!)
     }
     
     private func populateDefaultCategories() {
@@ -79,7 +78,6 @@ extension CategoriesTableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryCell", for: indexPath)
         if let r_categories = categories {
-            print("temp")
             cell.textLabel?.text = r_categories[indexPath.row].name
         }
         return cell

@@ -57,9 +57,9 @@ extension MyRealm {
     
     func addDefaultCategoriesItem() {
         let defaultCategories =
-            ["Birds", "Mammals", "Flora", "Reptiles", "Arachnids" ] // 3
+            ["Birds", "Mammals", "Flora", "Reptiles", "Arachnids" ]
         if let inRealm = realm {
-            for category in defaultCategories { // 4
+            for category in defaultCategories {
                 let newCategory = Category()
                 newCategory.name = category
                 print(inRealm)
@@ -78,7 +78,7 @@ extension MyRealm {
 }
 
 extension MyRealm {
-    func addNewSpecimen(newSpecimen: Specimen) {
+    func addNewSpecimen(newSpecimen: Specimen) -> Bool {
         if let inRealm = realm {
             do {
                 try inRealm.write {
@@ -86,7 +86,9 @@ extension MyRealm {
                 }
             } catch {
                 print(error)
+                return false
             }
         }
+        return true
     }
 }
