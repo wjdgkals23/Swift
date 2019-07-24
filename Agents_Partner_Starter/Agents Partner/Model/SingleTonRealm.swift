@@ -91,4 +91,12 @@ extension MyRealm {
         }
         return true
     }
+    
+    func callSpecimenItem() -> Results<Specimen>? {
+        if let inRealm = realm {
+            return { inRealm.objects(Specimen.self) }()
+        } else {
+            return nil
+        }
+    }
 }

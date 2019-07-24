@@ -231,7 +231,7 @@
                     <navigationItem key="navigationItem" id="dvr-gU-UwP">
                         <barButtonItem key="rightBarButtonItem" title="Confirm" id="qdt-4n-CpQ">
                             <connections>
-                                <segue destination="GQF-Dl-wKJ" kind="unwind" identifier="UnwindToMap" unwindAction="unwindFromAddNewEntryWithSegue:" id="mpB-B7-CdQ"/>
+                                <segue destination="GQF-Dl-wKJ" kind="unwind" identifier="UnwindToMap" unwindAction="unwindFromAddNewEntryWithSegue:" id="dk9-6J-Owl"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -336,7 +336,7 @@
         <image name="LocationIcon" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="gm6-v2-64C"/>
+        <segue reference="Nwv-EZ-LPV"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
