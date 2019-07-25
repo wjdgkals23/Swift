@@ -38,8 +38,10 @@ class MyRealm {
     init() {
         do {
             print("success")
+//            print(UIDevice().identifierForVendor) uuid 기반으로 재밌는거 가능하겠다.
             let inRealm = try Realm()
             realm = inRealm
+            print(Realm.Configuration.defaultConfiguration.fileURL!)
         } catch {
             realm = nil
         }
