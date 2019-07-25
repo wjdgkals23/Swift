@@ -162,7 +162,7 @@ class MapViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if (segue.identifier == "NewEntry") { // 해당 VC로 온 과정이 AddNewEntryViewController 라면 해당 과정을 진행한다.
+        if (segue.identifier == "NewEntry") { //  AddNewEntryViewController로 가는 과정을 준비한다.
             let controller = segue.destination as! AddNewEntryViewController
             let specimenAnnotation = sender as! SpecimenAnnotation
             controller.selectedAnnotation = specimenAnnotation

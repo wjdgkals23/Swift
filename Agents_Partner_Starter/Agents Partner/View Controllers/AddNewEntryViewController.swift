@@ -50,9 +50,13 @@ class AddNewEntryViewController: UIViewController {
     // MARK: - IBActions
     //
     @IBAction func unwindFromCategories(segue: UIStoryboardSegue) {
-        let categoriesController = segue.source as! CategoriesTableViewController
-        selectedCategory = categoriesController.selectedCategory
-        categoryTextField.text = selectedCategory.name
+        if(segue.identifier == "CategorySelectedCancel") {
+            return
+        } else {
+            let categoriesController = segue.source as! CategoriesTableViewController
+            selectedCategory = categoriesController.selectedCategory
+            categoryTextField.text = selectedCategory.name
+        }
     }
     
     //
@@ -97,9 +101,31 @@ class AddNewEntryViewController: UIViewController {
         }
     }
     
+    func updateSpecimen() {
+        let realm = try! Realm()
+        
+        try! realm.write {
+            specimen.name = nameTextField.text!
+            specimen.category = selectedCategory
+            specimen.specimenDescription = descriptionTextField.text
+        }
+    }
+    
+    func fillTextFields() {
+        nameTextField.text = specimen.name
+        categoryTextField.text = specimen.category.name
+        descriptionTextField.text = specimen.specimenDescription
+        
+        selectedCategory = specimen.category
+    }
+    
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         if (validateFields()) {
-            addNewSpecimen()
+            if specimen != nil {
+                updateSpecimen()
+            } else {
+                addNewSpecimen()
+            }
             return true
         } else {
             return false
@@ -111,6 +137,13 @@ class AddNewEntryViewController: UIViewController {
     //
     override func viewDidLoad() {
         super.viewDidLoad()
+        if let specimen = specimen {
+            title = "Edit \(specimen.name)"
+            fillTextFields()
+        } else {
+            title = "Add New Specimen"
+        }
+
     }
 }
 

@@ -43,7 +43,7 @@ class LogViewController: UITableViewController {
     //
     // MARK: - Variables And Properties
     //
-    var searchResults: [Any] = []
+    var searchResults = MyRealm.shared.callSpecimenItem()
     var searchController: UISearchController!
     var specimens = MyRealm.shared.callSpecimenItem()?.sorted(byKeyPath: "name", ascending: true)
     
@@ -51,13 +51,21 @@ class LogViewController: UITableViewController {
     // MARK: - IBActions
     //
     @IBAction func scopeChanged(sender: Any) {
+        let scopeBar = sender as! UISegmentedControl
+        specimens = MyRealm.shared.callSpecimenItem()
         
+        switch scopeBar.selectedSegmentIndex {
+        case 1:
+            specimens = specimens!.sorted(byKeyPath: "created", ascending: true)
+        default:
+            specimens = specimens!.sorted(byKeyPath: "name", ascending: true)
+        }
+        tableView.reloadData()
+
     }
-    
-    
     //
     // MARK: - View Controller
-    //
+    //a
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -78,12 +86,48 @@ class LogViewController: UITableViewController {
         
         definesPresentationContext = true
     }
+    
+    func filterResultsWithSearchString(searchString: String) {
+        let predicate = NSPredicate(format: "name BEGINSWITH [c]%@", searchString)
+        let scopeIndex = searchController.searchBar.selectedScopeButtonIndex
+        
+        switch scopeIndex {
+        case 0:
+            searchResults = MyRealm.shared.callSpecimenItem()?.filter(predicate).sorted(byKeyPath: "name", ascending: true)
+        case 1:
+            searchResults = MyRealm.shared.callSpecimenItem()?.filter(predicate)
+                .sorted(byKeyPath: "created", ascending: true) // 4
+        default:
+            searchResults = MyRealm.shared.callSpecimenItem()?.filter(predicate)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == "Edit") {
+            let controller = segue.destination as! AddNewEntryViewController
+            var selectedSpecimen: Specimen!
+            let indexPath = tableView.indexPathForSelectedRow
+            
+            if searchController.isActive {
+                let searchResultsController = searchController.searchResultsController as! UITableViewController
+                let indexPathSearch = searchResultsController.tableView.indexPathForSelectedRow
+                
+                selectedSpecimen = searchResults![indexPathSearch!.row]
+            } else {
+                selectedSpecimen = specimens![indexPath!.row]
+            }
+            
+            controller.specimen = selectedSpecimen
+        }
+    }
+    
 }
 
 //
 // MARK: - Search Bar Delegate
 //
 extension LogViewController:  UISearchBarDelegate {
+    
 }
 
 //
@@ -91,6 +135,8 @@ extension LogViewController:  UISearchBarDelegate {
 //
 extension LogViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
+        let searchString = searchController.searchBar.text!
+        filterResultsWithSearchString(searchString: searchString)
         let searchResultsController = searchController.searchResultsController as! UITableViewController
         searchResultsController.tableView.reloadData()
     }
@@ -101,7 +147,7 @@ extension LogViewController: UISearchResultsUpdating {
 extension LogViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "LogCell") as! LogCell
-        let specimen = specimens![indexPath.row]
+        let specimen = searchController.isActive ? searchResults![indexPath.row] : specimens![indexPath.row]
         cell.titleLabel.text = specimen.name
         cell.subtitleLabel.text = specimen.category.name
         
@@ -126,6 +172,9 @@ extension LogViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return searchController.isActive ? searchResults.count : specimens!.count
+        if let r_searchResult = searchResults, let r_specimens = specimens {
+            return searchController.isActive ? r_searchResult.count : r_specimens.count
+        }
+        return 0
     }
 }

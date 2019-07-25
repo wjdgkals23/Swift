@@ -32,7 +32,7 @@
                                         <segment title="Date Added"/>
                                     </segments>
                                     <connections>
-                                        <action selector="scopeChanged:" destination="c19-vd-Wl0" eventType="valueChanged" id="Tgf-oB-JsC"/>
+                                        <action selector="scopeChangedWithSender:" destination="c19-vd-Wl0" eventType="valueChanged" id="dxf-Br-jEd"/>
                                     </connections>
                                 </segmentedControl>
                             </subviews>
@@ -279,7 +279,7 @@
                     <navigationItem key="navigationItem" id="LFQ-F1-Akp">
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="nLT-Dq-gbC">
                             <connections>
-                                <segue destination="0By-b9-8vl" kind="unwind" unwindAction="unwindFromCategoriesWithSegue:" id="cvO-wB-iRr"/>
+                                <segue destination="0By-b9-8vl" kind="unwind" identifier="CategorySelectedCancel" unwindAction="unwindFromCategoriesWithSegue:" id="cvO-wB-iRr"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
