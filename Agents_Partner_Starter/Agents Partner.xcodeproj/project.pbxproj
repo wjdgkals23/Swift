@@ -21,6 +21,7 @@
 		9026B51022E73F6B00BBB63D /* SingleTonRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9026B50F22E73F6B00BBB63D /* SingleTonRealm.swift */; };
 		C120FA3A87FACA57786955F6 /* Pods_Agents_Partner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAB8963A69B35884757F8131 /* Pods_Agents_Partner.framework */; };
 		F411D83122E5987900BC0AC9 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = F411D83022E5987900BC0AC9 /* Category.swift */; };
+		F419D2EA22EEC22B00C8EF18 /* Announce.swift in Sources */ = {isa = PBXBuildFile; fileRef = F419D2E922EEC22B00C8EF18 /* Announce.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,7 @@
 		9026B50F22E73F6B00BBB63D /* SingleTonRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleTonRealm.swift; sourceTree = "<group>"; };
 		9CE967068FB84680D855CE7C /* Pods-Agents Partner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Agents Partner.release.xcconfig"; path = "Target Support Files/Pods-Agents Partner/Pods-Agents Partner.release.xcconfig"; sourceTree = "<group>"; };
 		F411D83022E5987900BC0AC9 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		F419D2E922EEC22B00C8EF18 /* Announce.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Announce.swift; sourceTree = "<group>"; };
 		FAB8963A69B35884757F8131 /* Pods_Agents_Partner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Agents_Partner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -86,6 +88,7 @@
 		553A7753217F98CA008B1BAF /* Agents Partner */ = {
 			isa = PBXGroup;
 			children = (
+				F419D2E822EEC1F200C8EF18 /* Protocols */,
 				553A7754217F98CA008B1BAF /* AppDelegate.swift */,
 				553A7777217FA526008B1BAF /* Cells */,
 				553A7778217FA532008B1BAF /* Model */,
@@ -150,6 +153,14 @@
 				FAB8963A69B35884757F8131 /* Pods_Agents_Partner.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F419D2E822EEC1F200C8EF18 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				F419D2E922EEC22B00C8EF18 /* Announce.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -274,6 +285,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F419D2EA22EEC22B00C8EF18 /* Announce.swift in Sources */,
 				553A7772217FA517008B1BAF /* AddNewEntryViewController.swift in Sources */,
 				553A7770217FA517008B1BAF /* Specimen.swift in Sources */,
 				553A7773217FA517008B1BAF /* LogCell.swift in Sources */,

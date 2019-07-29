@@ -49,6 +49,8 @@ class MapViewController: UIViewController {
     //
     // MARK: - Variables And Properties
     //
+    weak var announceDelegate: Announce?
+    
     var lastAnnotation: MKAnnotation!
     var locationManager = CLLocationManager()
     var userLocated = false
@@ -93,6 +95,7 @@ class MapViewController: UIViewController {
             specimen: addedSpecimen)
         
         mapView.addAnnotation(annotation)
+        announceNewAnnotation(annotation)
         lastAnnotation = nil;
     }
     
@@ -147,6 +150,7 @@ class MapViewController: UIViewController {
     //
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.announceDelegate = self;
         
         title = "Map"
         
@@ -248,5 +252,11 @@ extension MapViewController: MKMapViewDelegate {
         }
         
         return nil
+    }
+}
+
+extension MapViewController: Announce {
+    func announceNewAnnotation(_ newAnnotation: SpecimenAnnotation) {
+        print(newAnnotation.specimen!.name + "/" + newAnnotation.specimen!.category.name)
     }
 }
